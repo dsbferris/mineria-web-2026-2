@@ -1,0 +1,11 @@
+transformers
+torch
+sentence-transformers
+chromadb
+pysentimiento
+pandas
+scikit-learn
+matplotlib
+jupyter
+ipywidgets
+tqdm
