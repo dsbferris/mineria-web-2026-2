@@ -1,8 +1,8 @@
 pais,n,%NEG,neto,polarizacion,calif. promedio,tópico más negativo,neto del tópico,n del tópico
-Uruguay,15,0.4,-0.13,0.53,2.93,"2 · caja, llego, pantalla",-0.33,3
-Chile,27,0.3,0.04,0.59,3.15,"1 · correo, soporte, llego",-0.75,8
-Ecuador,25,0.32,0.08,0.64,3.16,"1 · correo, soporte, llego",-0.75,4
-Mexico,19,0.26,0.11,0.53,3.74,"1 · correo, soporte, llego",-0.14,7
-Peru,103,0.26,0.16,0.52,3.51,"1 · correo, soporte, llego",-0.42,26
-Argentina,33,0.15,0.18,0.3,3.52,"4 · proceso, pago, esperaba",-0.33,3
-Colombia,23,0.17,0.22,0.35,3.35,"1 · correo, soporte, llego",-0.67,3
+Uruguay,15,0.4,-0.13,0.53,2.93,"0 · soporte, correo, proceso",-0.2,5
+Chile,27,0.3,0.04,0.59,3.15,"0 · soporte, correo, proceso",-0.7,10
+Ecuador,25,0.32,0.08,0.64,3.16,"0 · soporte, correo, proceso",-0.75,4
+Mexico,19,0.26,0.11,0.53,3.74,"0 · soporte, correo, proceso",-0.29,7
+Peru,103,0.26,0.16,0.52,3.51,"0 · soporte, correo, proceso",-0.28,32
+Argentina,33,0.15,0.18,0.3,3.52,"3 · pantalla, funciona, app",-0.5,4
+Colombia,23,0.17,0.22,0.35,3.35,"0 · soporte, correo, proceso",-0.5,4
