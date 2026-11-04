@@ -81,7 +81,10 @@ function toProductoModel(row: ItemCarritoRow): Producto {
 
 async function hydrateCarrito(carritoRow: CarritoRow): Promise<Carrito> {
   const db = await getDb();
-  const clienteRow = await db.get<ClienteRow>("SELECT * FROM clientes WHERE id = ?", carritoRow.cliente_id);
+  const clienteRow = await db.get<ClienteRow>(
+    "SELECT * FROM clientes WHERE id = ?",
+    carritoRow.cliente_id,
+  );
   if (!clienteRow) {
     throw new Error("Cliente no encontrado para carrito");
   }
@@ -128,13 +131,18 @@ async function hydrateCarrito(carritoRow: CarritoRow): Promise<Carrito> {
 
 export async function getCarritos(): Promise<Carrito[]> {
   const db = await getDb();
-  const rows = await db.all<CarritoRow[]>("SELECT * FROM carritos ORDER BY id DESC");
+  const rows = await db.all<CarritoRow[]>(
+    "SELECT * FROM carritos ORDER BY id DESC",
+  );
   return Promise.all(rows.map((row) => hydrateCarrito(row)));
 }
 
 export async function getCarritoPorId(id: number): Promise<Carrito> {
   const db = await getDb();
-  const row = await db.get<CarritoRow>("SELECT * FROM carritos WHERE id = ?", id);
+  const row = await db.get<CarritoRow>(
+    "SELECT * FROM carritos WHERE id = ?",
+    id,
+  );
   if (!row) {
     throw new Error("Carrito no encontrado");
   }
@@ -142,7 +150,9 @@ export async function getCarritoPorId(id: number): Promise<Carrito> {
   return hydrateCarrito(row);
 }
 
-export async function getCarritoPorCliente(clienteId: number): Promise<Carrito | undefined> {
+export async function getCarritoPorCliente(
+  clienteId: number,
+): Promise<Carrito | undefined> {
   const db = await getDb();
   const row = await db.get<CarritoRow>(
     `SELECT * FROM carritos
@@ -192,7 +202,10 @@ export async function crearCarrito(carrito: Carrito): Promise<Carrito> {
   }
 }
 
-export async function actualizarCarrito(id: number, carrito: Carrito): Promise<Carrito> {
+export async function actualizarCarrito(
+  id: number,
+  carrito: Carrito,
+): Promise<Carrito> {
   const db = await getDb();
   await db.exec("BEGIN TRANSACTION;");
 
@@ -232,7 +245,9 @@ export async function actualizarCarrito(id: number, carrito: Carrito): Promise<C
   }
 }
 
-export async function agregarItemAlCarrito(nuevoItem: Omit<ItemCarrito, "id">): Promise<Carrito> {
+export async function agregarItemAlCarrito(
+  nuevoItem: Omit<ItemCarrito, "id">,
+): Promise<Carrito> {
   const db = await getDb();
   const existing = await db.get<{ id: number; cantidad: number }>(
     `SELECT id, cantidad
@@ -266,7 +281,9 @@ export async function agregarItemAlCarrito(nuevoItem: Omit<ItemCarrito, "id">): 
   return getCarritoPorId(nuevoItem.carrito.id);
 }
 
-export async function actualizarItemCarrito(item: ItemCarrito): Promise<Carrito> {
+export async function actualizarItemCarrito(
+  item: ItemCarrito,
+): Promise<Carrito> {
   const db = await getDb();
   const updated = await db.run(
     `UPDATE carrito_items
@@ -286,7 +303,10 @@ export async function actualizarItemCarrito(item: ItemCarrito): Promise<Carrito>
   return getCarritoPorId(item.carrito.id);
 }
 
-export async function eliminarItemDelCarrito(itemId: number, carritoId: number): Promise<Carrito> {
+export async function eliminarItemDelCarrito(
+  itemId: number,
+  carritoId: number,
+): Promise<Carrito> {
   const db = await getDb();
   await db.run("DELETE FROM carrito_items WHERE id = ?", itemId);
   return getCarritoPorId(carritoId);

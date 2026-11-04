@@ -1,9 +1,9 @@
 # Colecciones Postman — Tienda Virtual
 
-| Archivo | Contenido |
-|---|---|
-| `tienda-virtual.postman_environment.json` | Environment "Tienda Virtual - Local" (baseUrl, API key demo, credenciales OAuth, `accessToken`). |
-| `tienda-virtual-rest.postman_collection.json` | REST API: Health, OAuth, Productos (CRUD), Clientes (CRUD), Ordenes, Testimonios, Comentarios, **Listados completos (auto-paginado)**, + carpeta de errores. |
+| Archivo                                          | Contenido                                                                                                                                                                |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `tienda-virtual.postman_environment.json`        | Environment "Tienda Virtual - Local" (baseUrl, API key demo, credenciales OAuth, `accessToken`).                                                                         |
+| `tienda-virtual-rest.postman_collection.json`    | REST API: Health, OAuth, Productos (CRUD), Clientes (CRUD), Ordenes, Testimonios, Comentarios, **Listados completos (auto-paginado)**, + carpeta de errores.             |
 | `tienda-virtual-graphql.postman_collection.json` | GraphQL API (solo lectura): queries de Productos, Clientes, Ordenes, Testimonios y Reseñas de entrega, **Listados completos (auto-paginado)**, + OAuth y casos de error. |
 
 ## Uso en Postman
@@ -25,13 +25,13 @@ El token dura 1 hora; si expira, vuelve a ejecutar el paso 1.
 
 ## Variables del environment
 
-| Variable | Valor por defecto | Para qué |
-|---|---|---|
-| `baseUrl` | `http://localhost:3000` | Host de la API. |
-| `apiKey` | `sk_demo_000000000000000000000000000000` | Header `x-api-key` (auth por defecto de ambas colecciones). |
-| `oauthClientId` | `scraper-demo` | `client_id` del flujo `client_credentials`. |
-| `oauthClientSecret` | `scraper-demo-secret` | `client_secret`. |
-| `accessToken` | *(vacío)* | Lo llena el request "Obtener access token". |
+| Variable            | Valor por defecto                        | Para qué                                                    |
+| ------------------- | ---------------------------------------- | ----------------------------------------------------------- |
+| `baseUrl`           | `http://localhost:3000`                  | Host de la API.                                             |
+| `apiKey`            | `sk_demo_000000000000000000000000000000` | Header `x-api-key` (auth por defecto de ambas colecciones). |
+| `oauthClientId`     | `scraper-demo`                           | `client_id` del flujo `client_credentials`.                 |
+| `oauthClientSecret` | `scraper-demo-secret`                    | `client_secret`.                                            |
+| `accessToken`       | _(vacío)_                                | Lo llena el request "Obtener access token".                 |
 
 Variables de coleccion (`productoId`, `clienteId`, `ordenId`, `nuevoProductoId`,
 `nuevoClienteId`) controlan los ids usados en las rutas; las de `nuevo*` las
@@ -50,7 +50,7 @@ ordenes`, `Todos los testimonios`).
   `clientesAll`, `ordenesAll`, `testimoniosAll` (JSON con el array completo).
 - El tamaño de página lo controla la variable de colección **`pageSize`** (50 por
   defecto).
-- **Requiere Collection Runner o newman.** En un solo *Send* el auto-avance no
+- **Requiere Collection Runner o newman.** En un solo _Send_ el auto-avance no
   ocurre: solo trae la página indicada por `pgProductos` / `pgClientes` / etc.
 
 ```bash

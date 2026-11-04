@@ -20,14 +20,24 @@ function jsonError(status: number, error: string, message: string): Response {
  *   2. header `Authorization: Bearer <access_token OAuth>`
  * Devuelve el AuthContext si autentica, o una Response 401 lista para retornar.
  */
-export async function autenticarPeticionApi(req: Request): Promise<AuthContext | Response> {
+export async function autenticarPeticionApi(
+  req: Request,
+): Promise<AuthContext | Response> {
   const apiKey = req.headers.get("x-api-key");
   if (apiKey) {
     const registro = await verificarApiKey(apiKey);
     if (!registro) {
-      return jsonError(401, "invalid_api_key", "La API key no es valida o fue revocada.");
+      return jsonError(
+        401,
+        "invalid_api_key",
+        "La API key no es valida o fue revocada.",
+      );
     }
-    return { metodo: "api_key", subject: `apikey:${registro.id}`, scopes: registro.scopes };
+    return {
+      metodo: "api_key",
+      subject: `apikey:${registro.id}`,
+      scopes: registro.scopes,
+    };
   }
 
   const authz = req.headers.get("authorization");
@@ -35,9 +45,17 @@ export async function autenticarPeticionApi(req: Request): Promise<AuthContext |
     const token = authz.replace(/^Bearer\s+/i, "").trim();
     const verificado = await verificarAccessToken(token);
     if (!verificado) {
-      return jsonError(401, "invalid_token", "El access token OAuth no es valido o expiro.");
+      return jsonError(
+        401,
+        "invalid_token",
+        "El access token OAuth no es valido o expiro.",
+      );
     }
-    return { metodo: "oauth", subject: verificado.sub, scopes: verificado.scopes };
+    return {
+      metodo: "oauth",
+      subject: verificado.sub,
+      scopes: verificado.scopes,
+    };
   }
 
   return jsonError(
@@ -50,5 +68,9 @@ export async function autenticarPeticionApi(req: Request): Promise<AuthContext |
 /** Comprueba que el AuthContext tenga un scope. Devuelve Response 403 si falta. */
 export function exigirScope(ctx: AuthContext, scope: string): Response | null {
   if (ctx.scopes.includes(scope)) return null;
-  return jsonError(403, "insufficient_scope", `Se requiere el scope '${scope}'.`);
+  return jsonError(
+    403,
+    "insufficient_scope",
+    `Se requiere el scope '${scope}'.`,
+  );
 }

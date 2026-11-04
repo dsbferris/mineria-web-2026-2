@@ -21,9 +21,16 @@ export async function autenticarUsuario(
 ): Promise<UsuarioSesion | null> {
   if (!email || !password) return null;
   const db = await getDb();
-  const row = await db.get<UsuarioRow>("SELECT * FROM usuarios WHERE email = ?", email.trim().toLowerCase());
+  const row = await db.get<UsuarioRow>(
+    "SELECT * FROM usuarios WHERE email = ?",
+    email.trim().toLowerCase(),
+  );
   if (!row) return null;
-  const ok = await verifyPassword(password, row.password_hash, row.password_salt);
+  const ok = await verifyPassword(
+    password,
+    row.password_hash,
+    row.password_salt,
+  );
   if (!ok) return null;
   return { id: row.id, email: row.email, nombre: row.nombre, rol: row.rol };
 }

@@ -1,11 +1,18 @@
 import { autenticarPeticionApi } from "@/lib/auth/guard";
 import { jsonError, jsonOk } from "@/lib/api/rest";
-import { getComentarios, type TipoComentarioFiltro } from "@/lib/api/comentarios";
+import {
+  getComentarios,
+  type TipoComentarioFiltro,
+} from "@/lib/api/comentarios";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const TIPOS: TipoComentarioFiltro[] = ["producto", "cliente_general", "post_compra"];
+const TIPOS: TipoComentarioFiltro[] = [
+  "producto",
+  "cliente_general",
+  "post_compra",
+];
 
 export async function GET(req: Request) {
   const auth = await autenticarPeticionApi(req);
@@ -14,7 +21,11 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const tipoParam = searchParams.get("tipo");
   if (tipoParam && !TIPOS.includes(tipoParam as TipoComentarioFiltro)) {
-    return jsonError(400, "tipo_invalido", `tipo debe ser uno de: ${TIPOS.join(", ")}.`);
+    return jsonError(
+      400,
+      "tipo_invalido",
+      `tipo debe ser uno de: ${TIPOS.join(", ")}.`,
+    );
   }
 
   const num = (v: string | null) => {

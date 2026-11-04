@@ -39,29 +39,32 @@ curl -s -H "Authorization: Bearer $TOKEN" http://localhost:3000/api/productos | 
 
 ## Endpoints
 
-| Metodo | Ruta | Descripcion |
-|---|---|---|
-| `GET` | `/api/health` | Sin auth. `{ status: "ok" }`. |
-| `GET` | `/api/productos?page=&pageSize=` | Lista paginada. Cada item incluye `aggregateRating`. |
-| `GET` | `/api/productos/:id` | Detalle + `especificaciones` + `resenas` + `aggregateRating`. |
-| `POST` | `/api/productos` | Crea. Body JSON: `codigo, nombre, descripcion, precio, stock` (+ `categoria`, `subcategoria`). |
-| `PUT` | `/api/productos/:id` | Actualiza (campos parciales). |
-| `DELETE` | `/api/productos/:id` | Elimina. |
-| `GET` | `/api/clientes?page=&pageSize=` | Lista paginada. |
-| `GET` | `/api/clientes/:id` | Detalle. |
-| `POST` | `/api/clientes` | Crea. Body: `dni, nombre, apellidos` (+ `email`, `ciudad`, `pais`). |
-| `PUT` | `/api/clientes/:id` | Actualiza. |
-| `DELETE` | `/api/clientes/:id` | Elimina. |
-| `GET` | `/api/ordenes?page=&pageSize=&fecha=&clienteId=` | Lista paginada (con `cliente` e `items`). |
-| `GET` | `/api/ordenes/:id` | Detalle + `resenasEntrega`. |
-| `GET` | `/api/testimonios?page=&pageSize=` | Comentarios `tipo=cliente_general`. |
-| `GET` | `/api/comentarios?tipo=&productoId=&ordenId=&clienteId=` | `tipo` ∈ `producto`, `cliente_general`, `post_compra`. |
-| `POST` | `/api/oauth/token` | Emite access token OAuth. |
+| Metodo   | Ruta                                                     | Descripcion                                                                                    |
+| -------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `GET`    | `/api/health`                                            | Sin auth. `{ status: "ok" }`.                                                                  |
+| `GET`    | `/api/productos?page=&pageSize=`                         | Lista paginada. Cada item incluye `aggregateRating`.                                           |
+| `GET`    | `/api/productos/:id`                                     | Detalle + `especificaciones` + `resenas` + `aggregateRating`.                                  |
+| `POST`   | `/api/productos`                                         | Crea. Body JSON: `codigo, nombre, descripcion, precio, stock` (+ `categoria`, `subcategoria`). |
+| `PUT`    | `/api/productos/:id`                                     | Actualiza (campos parciales).                                                                  |
+| `DELETE` | `/api/productos/:id`                                     | Elimina.                                                                                       |
+| `GET`    | `/api/clientes?page=&pageSize=`                          | Lista paginada.                                                                                |
+| `GET`    | `/api/clientes/:id`                                      | Detalle.                                                                                       |
+| `POST`   | `/api/clientes`                                          | Crea. Body: `dni, nombre, apellidos` (+ `email`, `ciudad`, `pais`).                            |
+| `PUT`    | `/api/clientes/:id`                                      | Actualiza.                                                                                     |
+| `DELETE` | `/api/clientes/:id`                                      | Elimina.                                                                                       |
+| `GET`    | `/api/ordenes?page=&pageSize=&fecha=&clienteId=`         | Lista paginada (con `cliente` e `items`).                                                      |
+| `GET`    | `/api/ordenes/:id`                                       | Detalle + `resenasEntrega`.                                                                    |
+| `GET`    | `/api/testimonios?page=&pageSize=`                       | Comentarios `tipo=cliente_general`.                                                            |
+| `GET`    | `/api/comentarios?tipo=&productoId=&ordenId=&clienteId=` | `tipo` ∈ `producto`, `cliente_general`, `post_compra`.                                         |
+| `POST`   | `/api/oauth/token`                                       | Emite access token OAuth.                                                                      |
 
 ## Formato de error
 
 ```json
-{ "error": "unauthorized", "message": "Envia el header 'x-api-key: <key>' o 'Authorization: Bearer <token OAuth>'." }
+{
+  "error": "unauthorized",
+  "message": "Envia el header 'x-api-key: <key>' o 'Authorization: Bearer <token OAuth>'."
+}
 ```
 
 Codigos: `401` (sin/invalida credencial), `403` (`insufficient_scope`), `400` (validacion), `404` (no encontrado).

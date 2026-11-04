@@ -1,6 +1,10 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { SESSION_COOKIE, verificarSesion, type SesionPayload } from "@/lib/auth/session";
+import {
+  SESSION_COOKIE,
+  verificarSesion,
+  type SesionPayload,
+} from "@/lib/auth/session";
 
 /**
  * Para Server Components y Server Actions. Devuelve la sesion actual o, si no

@@ -19,12 +19,14 @@ const cards = [
   {
     href: "/ordenes",
     title: "Ordenes",
-    description: "Consulta ordenes, filtra por fecha y revisa resenas de entrega.",
+    description:
+      "Consulta ordenes, filtra por fecha y revisa resenas de entrega.",
   },
   {
     href: "/testimonios",
     title: "Testimonios",
-    description: "Opiniones generales de clientes sobre su experiencia de compra.",
+    description:
+      "Opiniones generales de clientes sobre su experiencia de compra.",
   },
 ];
 
@@ -34,7 +36,8 @@ export default function Home() {
       <header className="rounded-lg bg-white p-6 shadow">
         <h2 className="text-3xl font-bold text-gray-800">Tienda Virtual</h2>
         <p className="mt-2 text-gray-600">
-          Esta version usa App Router, Server Components y Server Actions conectados al API real.
+          Esta version usa App Router, Server Components y Server Actions
+          conectados al API real.
         </p>
       </header>
 
@@ -45,7 +48,9 @@ export default function Home() {
             href={card.href}
             className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
-            <h3 className="text-xl font-semibold text-gray-800">{card.title}</h3>
+            <h3 className="text-xl font-semibold text-gray-800">
+              {card.title}
+            </h3>
             <p className="mt-2 text-gray-600">{card.description}</p>
           </Link>
         ))}

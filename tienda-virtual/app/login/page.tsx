@@ -20,7 +20,8 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
     <section className="mx-auto max-w-md rounded-lg bg-white p-6 shadow-md">
       <h2 className="text-2xl font-bold text-gray-800">Iniciar sesion</h2>
       <p className="mt-1 text-sm text-gray-600">
-        Acceso al back-office (clientes, ordenes, carrito, alta/edicion de productos y panel de API keys).
+        Acceso al back-office (clientes, ordenes, carrito, alta/edicion de
+        productos y panel de API keys).
       </p>
 
       {error && (
@@ -32,7 +33,10 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
       <form action={loginAction} className="mt-6 space-y-4">
         <input type="hidden" name="next" value={next ?? "/"} />
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="email">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="email"
+          >
             Email
           </label>
           <input
@@ -46,7 +50,10 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="password">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="password"
+          >
             Contrasena
           </label>
           <input

@@ -14,9 +14,12 @@ const { handleRequest } = createYoga({
   context: async ({ request }) => {
     const auth = await autenticarPeticionApi(request); // x-api-key  o  Authorization: Bearer
     if (auth instanceof Response) {
-      throw new GraphQLError("No autenticado. Envia 'x-api-key' o 'Authorization: Bearer <token OAuth>'.", {
-        extensions: { code: "UNAUTHENTICATED", http: { status: 401 } },
-      });
+      throw new GraphQLError(
+        "No autenticado. Envia 'x-api-key' o 'Authorization: Bearer <token OAuth>'.",
+        {
+          extensions: { code: "UNAUTHENTICATED", http: { status: 401 } },
+        },
+      );
     }
     return { auth };
   },

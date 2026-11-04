@@ -7,4 +7,4 @@ export interface ItemCarrito {
   producto: Producto;
   cantidad: number;
   subTotal: number;
-};
+}

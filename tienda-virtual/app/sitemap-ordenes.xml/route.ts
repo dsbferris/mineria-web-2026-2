@@ -6,7 +6,12 @@ export async function GET() {
   const ordenesIds = await getOrdenesIds();
 
   const xml = buildUrlset([
-    { path: "/ordenes", lastModified: now, changeFrequency: "daily", priority: 0.7 },
+    {
+      path: "/ordenes",
+      lastModified: now,
+      changeFrequency: "daily",
+      priority: 0.7,
+    },
     ...ordenesIds.map((id) => ({
       path: `/ordenes/${id}`,
       lastModified: now,

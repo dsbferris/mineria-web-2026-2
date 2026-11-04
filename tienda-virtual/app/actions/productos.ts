@@ -56,7 +56,9 @@ export async function editarProductoAction(formData: FormData): Promise<void> {
   redirect("/productos");
 }
 
-export async function eliminarProductoAction(formData: FormData): Promise<void> {
+export async function eliminarProductoAction(
+  formData: FormData,
+): Promise<void> {
   await requireSession();
   const id = parseNumber(formData.get("id"), "id");
   await eliminarProducto(id);

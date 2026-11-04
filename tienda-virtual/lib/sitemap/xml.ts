@@ -1,13 +1,8 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export type ChangeFreq =
-  | "always"
-  | "hourly"
-  | "daily"
-  | "weekly"
-  | "monthly"
-  | "yearly"
-  | "never";
+  "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
 
 export interface SitemapUrlEntry {
   path: string;
@@ -41,7 +36,9 @@ export function buildUrlset(entries: SitemapUrlEntry[]): string {
         ? `\n    <changefreq>${entry.changeFrequency}</changefreq>`
         : "";
       const priority =
-        entry.priority !== undefined ? `\n    <priority>${entry.priority}</priority>` : "";
+        entry.priority !== undefined
+          ? `\n    <priority>${entry.priority}</priority>`
+          : "";
       return `  <url>\n    <loc>${escapeXml(url)}</loc>${lastMod}${freq}${priority}\n  </url>`;
     })
     .join("\n");

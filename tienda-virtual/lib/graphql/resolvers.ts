@@ -50,7 +50,12 @@ export const resolvers = {
     },
     async ordenes(
       _: unknown,
-      args: { page?: number; pageSize?: number; fecha?: string | null; clienteId?: number | null },
+      args: {
+        page?: number;
+        pageSize?: number;
+        fecha?: string | null;
+        clienteId?: number | null;
+      },
     ) {
       const r = await listarPedidosPaginado(
         args.page ?? 1,
@@ -68,12 +73,20 @@ export const resolvers = {
       }
     },
     async testimonios(_: unknown, args: { page?: number; pageSize?: number }) {
-      const r = await getTestimoniosPaginado(args.page ?? 1, args.pageSize ?? 10);
+      const r = await getTestimoniosPaginado(
+        args.page ?? 1,
+        args.pageSize ?? 10,
+      );
       return { items: r.items, pageInfo: pageInfo(r) };
     },
     async comentarios(
       _: unknown,
-      args: { tipo: string; productoId?: number | null; ordenId?: number | null; clienteId?: number | null },
+      args: {
+        tipo: string;
+        productoId?: number | null;
+        ordenId?: number | null;
+        clienteId?: number | null;
+      },
     ) {
       return getComentarios({
         tipo: args.tipo as TipoComentarioFiltro,
@@ -85,10 +98,13 @@ export const resolvers = {
   },
 
   Producto: {
-    especificaciones: (parent: ProductoParent) => getEspecificacionesPorProducto(parent.id),
+    especificaciones: (parent: ProductoParent) =>
+      getEspecificacionesPorProducto(parent.id),
     async aggregateRating(parent: ProductoParent) {
       const r = await getResenasPorProducto(parent.id);
-      return r.total > 0 ? { ratingValue: r.promedio, reviewCount: r.total } : null;
+      return r.total > 0
+        ? { ratingValue: r.promedio, reviewCount: r.total }
+        : null;
     },
     async resenas(parent: ProductoParent) {
       return (await getResenasPorProducto(parent.id)).items;

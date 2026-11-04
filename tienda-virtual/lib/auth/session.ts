@@ -20,7 +20,11 @@ export interface SesionPayload {
 
 /** Firma un JWT de sesion para la cookie del navegador. */
 export async function crearSesion(usuario: UsuarioSesion): Promise<string> {
-  return new SignJWT({ email: usuario.email, nombre: usuario.nombre, rol: usuario.rol })
+  return new SignJWT({
+    email: usuario.email,
+    nombre: usuario.nombre,
+    rol: usuario.rol,
+  })
     .setProtectedHeader({ alg: "HS256" })
     .setSubject(String(usuario.id))
     .setIssuer(JWT_ISSUER)
@@ -31,7 +35,9 @@ export async function crearSesion(usuario: UsuarioSesion): Promise<string> {
 }
 
 /** Verifica y decodifica el JWT de sesion. Devuelve null si es invalido/expirado. */
-export async function verificarSesion(token: string | undefined | null): Promise<SesionPayload | null> {
+export async function verificarSesion(
+  token: string | undefined | null,
+): Promise<SesionPayload | null> {
   if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, getSecretKey(), {

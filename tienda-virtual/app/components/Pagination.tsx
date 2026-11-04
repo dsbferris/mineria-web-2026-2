@@ -9,7 +9,11 @@ interface PaginationProps {
   extraParams?: Record<string, string | undefined>;
 }
 
-function buildHref(basePath: string, targetPage: number, extraParams: Record<string, string | undefined>): string {
+function buildHref(
+  basePath: string,
+  targetPage: number,
+  extraParams: Record<string, string | undefined>,
+): string {
   const params = new URLSearchParams();
   for (const [key, value] of Object.entries(extraParams)) {
     if (value) params.set(key, value);
@@ -20,7 +24,10 @@ function buildHref(basePath: string, targetPage: number, extraParams: Record<str
 
 function buildPageWindow(page: number, totalPages: number): number[] {
   const windowSize = 5;
-  const start = Math.max(1, Math.min(page - Math.floor(windowSize / 2), totalPages - windowSize + 1));
+  const start = Math.max(
+    1,
+    Math.min(page - Math.floor(windowSize / 2), totalPages - windowSize + 1),
+  );
   const clampedStart = Math.max(1, start);
   const end = Math.min(totalPages, clampedStart + windowSize - 1);
 
@@ -29,7 +36,14 @@ function buildPageWindow(page: number, totalPages: number): number[] {
   return pages;
 }
 
-export default function Pagination({ basePath, page, totalPages, total, pageSize, extraParams = {} }: PaginationProps) {
+export default function Pagination({
+  basePath,
+  page,
+  totalPages,
+  total,
+  pageSize,
+  extraParams = {},
+}: PaginationProps) {
   if (totalPages <= 1) {
     return null;
   }
@@ -39,7 +53,10 @@ export default function Pagination({ basePath, page, totalPages, total, pageSize
   const lastItem = Math.min(page * pageSize, total);
 
   return (
-    <nav className="flex flex-col gap-3 border-t border-gray-200 pt-4 md:flex-row md:items-center md:justify-between" aria-label="Paginacion">
+    <nav
+      className="flex flex-col gap-3 border-t border-gray-200 pt-4 md:flex-row md:items-center md:justify-between"
+      aria-label="Paginacion"
+    >
       <p className="text-sm text-gray-600">
         Mostrando {firstItem}-{lastItem} de {total}
       </p>
@@ -52,7 +69,9 @@ export default function Pagination({ basePath, page, totalPages, total, pageSize
             Anterior
           </Link>
         ) : (
-          <span className="rounded-md bg-gray-100 px-3 py-1.5 text-sm text-gray-400">Anterior</span>
+          <span className="rounded-md bg-gray-100 px-3 py-1.5 text-sm text-gray-400">
+            Anterior
+          </span>
         )}
 
         {pageWindow[0] > 1 && (
@@ -63,13 +82,18 @@ export default function Pagination({ basePath, page, totalPages, total, pageSize
             >
               1
             </Link>
-            {pageWindow[0] > 2 && <span className="px-1 text-sm text-gray-400">...</span>}
+            {pageWindow[0] > 2 && (
+              <span className="px-1 text-sm text-gray-400">...</span>
+            )}
           </>
         )}
 
         {pageWindow.map((p) =>
           p === page ? (
-            <span key={p} className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold text-white">
+            <span
+              key={p}
+              className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold text-white"
+            >
               {p}
             </span>
           ) : (
@@ -85,7 +109,9 @@ export default function Pagination({ basePath, page, totalPages, total, pageSize
 
         {pageWindow[pageWindow.length - 1] < totalPages && (
           <>
-            {pageWindow[pageWindow.length - 1] < totalPages - 1 && <span className="px-1 text-sm text-gray-400">...</span>}
+            {pageWindow[pageWindow.length - 1] < totalPages - 1 && (
+              <span className="px-1 text-sm text-gray-400">...</span>
+            )}
             <Link
               href={buildHref(basePath, totalPages, extraParams)}
               className="rounded-md px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-200"
@@ -103,7 +129,9 @@ export default function Pagination({ basePath, page, totalPages, total, pageSize
             Siguiente
           </Link>
         ) : (
-          <span className="rounded-md bg-gray-100 px-3 py-1.5 text-sm text-gray-400">Siguiente</span>
+          <span className="rounded-md bg-gray-100 px-3 py-1.5 text-sm text-gray-400">
+            Siguiente
+          </span>
         )}
       </div>
     </nav>

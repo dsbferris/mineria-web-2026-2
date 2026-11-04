@@ -24,7 +24,8 @@ export async function GET(req: Request, ctx: Ctx) {
   if (auth instanceof Response) return auth;
 
   const id = await parseId(ctx);
-  if (id === null) return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
+  if (id === null)
+    return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
 
   try {
     const producto = await getProductoPorId(id);
@@ -35,7 +36,10 @@ export async function GET(req: Request, ctx: Ctx) {
     return jsonOk({
       ...producto,
       especificaciones,
-      aggregateRating: resenas.total > 0 ? { ratingValue: resenas.promedio, reviewCount: resenas.total } : null,
+      aggregateRating:
+        resenas.total > 0
+          ? { ratingValue: resenas.promedio, reviewCount: resenas.total }
+          : null,
       resenas: resenas.items,
     });
   } catch {
@@ -50,7 +54,8 @@ export async function PUT(req: Request, ctx: Ctx) {
   if (faltaScope) return faltaScope;
 
   const id = await parseId(ctx);
-  if (id === null) return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
+  if (id === null)
+    return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
 
   let previo;
   try {
@@ -65,15 +70,28 @@ export async function PUT(req: Request, ctx: Ctx) {
       id,
       codigo: body.codigo !== undefined ? String(body.codigo) : previo.codigo,
       nombre: body.nombre !== undefined ? String(body.nombre) : previo.nombre,
-      descripcion: body.descripcion !== undefined ? String(body.descripcion) : previo.descripcion,
-      categoria: body.categoria !== undefined ? String(body.categoria) : previo.categoria,
-      subcategoria: body.subcategoria !== undefined ? String(body.subcategoria) : previo.subcategoria,
+      descripcion:
+        body.descripcion !== undefined
+          ? String(body.descripcion)
+          : previo.descripcion,
+      categoria:
+        body.categoria !== undefined
+          ? String(body.categoria)
+          : previo.categoria,
+      subcategoria:
+        body.subcategoria !== undefined
+          ? String(body.subcategoria)
+          : previo.subcategoria,
       precio: body.precio !== undefined ? Number(body.precio) : previo.precio,
       stock: body.stock !== undefined ? Number(body.stock) : previo.stock,
     });
     return jsonOk(actualizado);
   } catch (error) {
-    return jsonError(400, "no_actualizado", error instanceof Error ? error.message : "No se pudo actualizar.");
+    return jsonError(
+      400,
+      "no_actualizado",
+      error instanceof Error ? error.message : "No se pudo actualizar.",
+    );
   }
 }
 
@@ -84,7 +102,8 @@ export async function DELETE(req: Request, ctx: Ctx) {
   if (faltaScope) return faltaScope;
 
   const id = await parseId(ctx);
-  if (id === null) return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
+  if (id === null)
+    return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
 
   try {
     await getProductoPorId(id);

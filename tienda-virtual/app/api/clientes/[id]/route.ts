@@ -1,6 +1,10 @@
 import { autenticarPeticionApi, exigirScope } from "@/lib/auth/guard";
 import { jsonError, jsonOk, leerJson } from "@/lib/api/rest";
-import { actualizarCliente, eliminarCliente, getClientePorId } from "@/lib/api/clientes";
+import {
+  actualizarCliente,
+  eliminarCliente,
+  getClientePorId,
+} from "@/lib/api/clientes";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -20,7 +24,8 @@ export async function GET(req: Request, ctx: Ctx) {
   if (auth instanceof Response) return auth;
 
   const id = await parseId(ctx);
-  if (id === null) return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
+  if (id === null)
+    return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
 
   try {
     const cliente = await getClientePorId(id);
@@ -37,7 +42,8 @@ export async function PUT(req: Request, ctx: Ctx) {
   if (faltaScope) return faltaScope;
 
   const id = await parseId(ctx);
-  if (id === null) return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
+  if (id === null)
+    return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
 
   let previo;
   try {
@@ -52,17 +58,29 @@ export async function PUT(req: Request, ctx: Ctx) {
       id,
       dni: body.dni !== undefined ? String(body.dni) : previo.dni,
       nombre: body.nombre !== undefined ? String(body.nombre) : previo.nombre,
-      apellidos: body.apellidos !== undefined ? String(body.apellidos) : previo.apellidos,
+      apellidos:
+        body.apellidos !== undefined
+          ? String(body.apellidos)
+          : previo.apellidos,
       email: body.email !== undefined ? String(body.email) : previo.email,
       ciudad: body.ciudad !== undefined ? String(body.ciudad) : previo.ciudad,
       pais: body.pais !== undefined ? String(body.pais) : previo.pais,
       fecha_registro:
-        body.fecha_registro !== undefined ? new Date(String(body.fecha_registro)) : previo.fecha_registro,
+        body.fecha_registro !== undefined
+          ? new Date(String(body.fecha_registro))
+          : previo.fecha_registro,
       carritos: [],
     });
-    return jsonOk({ ...actualizado, fecha_registro: fmt(actualizado.fecha_registro) });
+    return jsonOk({
+      ...actualizado,
+      fecha_registro: fmt(actualizado.fecha_registro),
+    });
   } catch (error) {
-    return jsonError(400, "no_actualizado", error instanceof Error ? error.message : "No se pudo actualizar.");
+    return jsonError(
+      400,
+      "no_actualizado",
+      error instanceof Error ? error.message : "No se pudo actualizar.",
+    );
   }
 }
 
@@ -73,7 +91,8 @@ export async function DELETE(req: Request, ctx: Ctx) {
   if (faltaScope) return faltaScope;
 
   const id = await parseId(ctx);
-  if (id === null) return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
+  if (id === null)
+    return jsonError(400, "id_invalido", "El id debe ser un entero positivo.");
 
   try {
     await getClientePorId(id);

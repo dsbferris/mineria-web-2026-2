@@ -29,15 +29,26 @@ function toClienteModel(cliente: ClienteRow): Cliente {
 
 export async function getClientes(): Promise<Cliente[]> {
   const db = await getDb();
-  const clientes = await db.all<ClienteRow[]>("SELECT * FROM clientes ORDER BY id ASC");
+  const clientes = await db.all<ClienteRow[]>(
+    "SELECT * FROM clientes ORDER BY id ASC",
+  );
   return clientes.map(toClienteModel);
 }
 
-export async function getClientesPaginado(pageParam: number, pageSize = 20): Promise<ResultadoPaginado<Cliente>> {
+export async function getClientesPaginado(
+  pageParam: number,
+  pageSize = 20,
+): Promise<ResultadoPaginado<Cliente>> {
   const db = await getDb();
-  const countRow = await db.get<{ total: number }>("SELECT COUNT(1) as total FROM clientes");
+  const countRow = await db.get<{ total: number }>(
+    "SELECT COUNT(1) as total FROM clientes",
+  );
   const total = countRow?.total ?? 0;
-  const { page, totalPages, offset } = calcularPagina(pageParam, total, pageSize);
+  const { page, totalPages, offset } = calcularPagina(
+    pageParam,
+    total,
+    pageSize,
+  );
 
   const rows = await db.all<ClienteRow[]>(
     "SELECT * FROM clientes ORDER BY id ASC LIMIT ? OFFSET ?",
@@ -50,14 +61,19 @@ export async function getClientesPaginado(pageParam: number, pageSize = 20): Pro
 
 export async function getClientePorId(id: number): Promise<Cliente> {
   const db = await getDb();
-  const cliente = await db.get<ClienteRow>("SELECT * FROM clientes WHERE id = ?", id);
+  const cliente = await db.get<ClienteRow>(
+    "SELECT * FROM clientes WHERE id = ?",
+    id,
+  );
   if (!cliente) {
     throw new Error("Cliente no encontrado");
   }
   return toClienteModel(cliente);
 }
 
-export async function registrarCliente(cliente: Omit<Cliente, "id">): Promise<Cliente> {
+export async function registrarCliente(
+  cliente: Omit<Cliente, "id">,
+): Promise<Cliente> {
   const db = await getDb();
   const result = await db.run(
     `INSERT INTO clientes (dni, nombre, apellidos, email, ciudad, pais, fecha_registro)
@@ -74,7 +90,9 @@ export async function registrarCliente(cliente: Omit<Cliente, "id">): Promise<Cl
   return getClientePorId(Number(result.lastID));
 }
 
-export async function actualizarCliente(clienteActualizado: Cliente): Promise<Cliente> {
+export async function actualizarCliente(
+  clienteActualizado: Cliente,
+): Promise<Cliente> {
   const db = await getDb();
   const result = await db.run(
     `UPDATE clientes

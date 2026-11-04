@@ -9,9 +9,15 @@ interface OrdenDetallePageProps {
   params: Promise<{ id: string }>;
 }
 
-const fechaFormatter = new Intl.DateTimeFormat("es-PE", { day: "2-digit", month: "2-digit", year: "numeric" });
+const fechaFormatter = new Intl.DateTimeFormat("es-PE", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
 
-export default async function OrdenDetallePage({ params }: OrdenDetallePageProps) {
+export default async function OrdenDetallePage({
+  params,
+}: OrdenDetallePageProps) {
   const { id } = await params;
   const ordenId = Number(id);
 
@@ -40,7 +46,11 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
     },
     acceptedOffer: (orden.items ?? []).map((item) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Product", name: item.producto.nombre, sku: item.producto.codigo },
+      itemOffered: {
+        "@type": "Product",
+        name: item.producto.nombre,
+        sku: item.producto.codigo,
+      },
       price: item.producto.precio,
       priceCurrency: "PEN",
       eligibleQuantity: { "@type": "QuantitativeValue", value: item.cantidad },
@@ -66,7 +76,10 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
       itemType="https://schema.org/Order"
       className="space-y-6"
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <div className="rounded-lg bg-white p-6 shadow-md">
         <nav className="mb-4 text-sm text-gray-500">
@@ -79,12 +92,20 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
 
         <header className="mb-4 flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase text-gray-500">Numero de orden</p>
-            <h2 className="text-3xl font-bold text-gray-800" itemProp="orderNumber">
+            <p className="text-xs font-semibold uppercase text-gray-500">
+              Numero de orden
+            </p>
+            <h2
+              className="text-3xl font-bold text-gray-800"
+              itemProp="orderNumber"
+            >
               {orden.numero}
             </h2>
             <p className="mt-1 text-sm text-gray-600">
-              Fecha: <time dateTime={fechaIso}>{fechaFormatter.format(orden.fecha)}</time>
+              Fecha:{" "}
+              <time dateTime={fechaIso}>
+                {fechaFormatter.format(orden.fecha)}
+              </time>
             </p>
           </div>
           <Link
@@ -101,7 +122,9 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
           itemScope
           itemType="https://schema.org/Person"
         >
-          <p className="text-xs font-semibold uppercase text-gray-500">Cliente</p>
+          <p className="text-xs font-semibold uppercase text-gray-500">
+            Cliente
+          </p>
           <p className="text-lg font-semibold text-gray-900" itemProp="name">
             {cliente.nombre} {cliente.apellidos}
           </p>
@@ -114,10 +137,18 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
           <table className="min-w-full overflow-hidden rounded-md">
             <thead className="bg-gray-100">
               <tr>
-                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">Producto</th>
-                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">Cantidad</th>
-                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">Precio unitario</th>
-                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">Subtotal</th>
+                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">
+                  Producto
+                </th>
+                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">
+                  Cantidad
+                </th>
+                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">
+                  Precio unitario
+                </th>
+                <th className="px-4 py-2 text-left text-xs font-semibold uppercase">
+                  Subtotal
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -132,15 +163,26 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
                   itemType="https://schema.org/OrderItem"
                 >
                   <td className="px-4 py-2 text-sm text-gray-900">
-                    <Link href={`/productos/${item.producto.id}`} className="hover:text-blue-600 hover:underline" itemProp="orderedItem">
+                    <Link
+                      href={`/productos/${item.producto.id}`}
+                      className="hover:text-blue-600 hover:underline"
+                      itemProp="orderedItem"
+                    >
                       {item.producto.nombre}
                     </Link>
                   </td>
-                  <td className="px-4 py-2 text-sm text-gray-900" itemProp="orderQuantity">
+                  <td
+                    className="px-4 py-2 text-sm text-gray-900"
+                    itemProp="orderQuantity"
+                  >
                     {item.cantidad}
                   </td>
-                  <td className="px-4 py-2 text-sm text-gray-900">S/ {item.producto.precio.toFixed(2)}</td>
-                  <td className="px-4 py-2 text-sm text-gray-900">S/ {item.subTotal.toFixed(2)}</td>
+                  <td className="px-4 py-2 text-sm text-gray-900">
+                    S/ {item.producto.precio.toFixed(2)}
+                  </td>
+                  <td className="px-4 py-2 text-sm text-gray-900">
+                    S/ {item.subTotal.toFixed(2)}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -157,10 +199,14 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
       </div>
 
       <div className="rounded-lg bg-white p-6 shadow-md">
-        <h3 className="mb-4 text-2xl font-bold text-gray-800">Resenas de entrega</h3>
+        <h3 className="mb-4 text-2xl font-bold text-gray-800">
+          Resenas de entrega
+        </h3>
 
         {resenas.length === 0 ? (
-          <p className="text-gray-600">Esta orden todavia no tiene resenas de entrega.</p>
+          <p className="text-gray-600">
+            Esta orden todavia no tiene resenas de entrega.
+          </p>
         ) : (
           <ul className="space-y-3" data-resenas-count={resenas.length}>
             {resenas.map((resena) => (
@@ -180,21 +226,43 @@ export default async function OrdenDetallePage({ params }: OrdenDetallePageProps
                 className="rounded-md border border-gray-200 p-4"
               >
                 <div className="mb-1 flex items-center justify-between gap-2">
-                  <p className="font-semibold text-gray-800" itemProp="author" itemScope itemType="https://schema.org/Person">
+                  <p
+                    className="font-semibold text-gray-800"
+                    itemProp="author"
+                    itemScope
+                    itemType="https://schema.org/Person"
+                  >
                     <span itemProp="name">
                       {resena.clienteNombre} {resena.clienteApellidos}
                     </span>
-                    {resena.productoNombre && <span className="font-normal text-gray-500"> - {resena.productoNombre}</span>}
+                    {resena.productoNombre && (
+                      <span className="font-normal text-gray-500">
+                        {" "}
+                        - {resena.productoNombre}
+                      </span>
+                    )}
                   </p>
-                  <time className="text-xs text-gray-500" dateTime={resena.fecha} itemProp="datePublished">
+                  <time
+                    className="text-xs text-gray-500"
+                    dateTime={resena.fecha}
+                    itemProp="datePublished"
+                  >
                     {fechaFormatter.format(new Date(resena.fecha))}
                   </time>
                 </div>
-                <div className="mb-2" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                <div
+                  className="mb-2"
+                  itemProp="reviewRating"
+                  itemScope
+                  itemType="https://schema.org/Rating"
+                >
                   <meta itemProp="worstRating" content="1" />
                   <meta itemProp="bestRating" content="5" />
                   <Estrellas calificacion={resena.calificacion} />
-                  <meta itemProp="ratingValue" content={String(resena.calificacion)} />
+                  <meta
+                    itemProp="ratingValue"
+                    content={String(resena.calificacion)}
+                  />
                 </div>
                 <p className="text-sm text-gray-700" itemProp="reviewBody">
                   {resena.texto}

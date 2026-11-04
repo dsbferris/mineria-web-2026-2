@@ -21,7 +21,8 @@ export async function GET(req: Request, ctx: Ctx) {
 
   try {
     const orden = await obtenerPedidoPorId(ordenId);
-    const resenas = (await getResenasEntregaPorOrdenes([ordenId])).get(ordenId) ?? [];
+    const resenas =
+      (await getResenasEntregaPorOrdenes([ordenId])).get(ordenId) ?? [];
     return jsonOk({ ...toOrdenDTO(orden), resenasEntrega: resenas });
   } catch {
     return jsonError(404, "no_encontrado", "Orden no encontrada.");

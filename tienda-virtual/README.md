@@ -53,11 +53,11 @@ Colecciones **Postman** listas para probar (con environment) en [`postman/`](pos
 Copia `.env.example` a `.env.local`. Se **re-siembran en cada arranque**, asi que sobreviven
 a los reinicios de la DB en memoria:
 
-| Que | Valor por defecto |
-|---|---|
-| Admin | `admin@tienda.local` / `admin123` |
-| API key | `sk_demo_000000000000000000000000000000` |
-| OAuth client | `scraper-demo` / `scraper-demo-secret` |
+| Que          | Valor por defecto                        |
+| ------------ | ---------------------------------------- |
+| Admin        | `admin@tienda.local` / `admin123`        |
+| API key      | `sk_demo_000000000000000000000000000000` |
+| OAuth client | `scraper-demo` / `scraper-demo-secret`   |
 
 Las API keys y clientes OAuth **creados en runtime** (paneles `/admin/api-keys` y
 `/admin/oauth-clients`) NO sobreviven al reinicio: la base es SQLite en memoria.

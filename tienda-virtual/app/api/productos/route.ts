@@ -13,13 +13,17 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const { page, pageSize } = parsePaginacion(searchParams);
   const resultado = await getProductosPaginado(page, pageSize);
-  const ratings = await getRatingsPorProductos(resultado.items.map((p) => p.id));
+  const ratings = await getRatingsPorProductos(
+    resultado.items.map((p) => p.id),
+  );
 
   const items = resultado.items.map((producto) => {
     const rating = ratings.get(producto.id);
     return {
       ...producto,
-      aggregateRating: rating ? { ratingValue: rating.promedio, reviewCount: rating.total } : null,
+      aggregateRating: rating
+        ? { ratingValue: rating.promedio, reviewCount: rating.total }
+        : null,
     };
   });
 
@@ -41,9 +45,19 @@ export async function POST(req: Request) {
   if (faltaScope) return faltaScope;
 
   const body = await leerJson(req);
-  const requeridos = ["codigo", "nombre", "descripcion", "precio", "stock"] as const;
+  const requeridos = [
+    "codigo",
+    "nombre",
+    "descripcion",
+    "precio",
+    "stock",
+  ] as const;
   for (const campo of requeridos) {
-    if (body[campo] === undefined || body[campo] === null || body[campo] === "") {
+    if (
+      body[campo] === undefined ||
+      body[campo] === null ||
+      body[campo] === ""
+    ) {
       return jsonError(400, "campo_requerido", `Falta el campo '${campo}'.`);
     }
   }
@@ -54,12 +68,18 @@ export async function POST(req: Request) {
       nombre: String(body.nombre),
       descripcion: String(body.descripcion),
       categoria: body.categoria ? String(body.categoria) : "General",
-      subcategoria: body.subcategoria ? String(body.subcategoria) : "Sin subcategoria",
+      subcategoria: body.subcategoria
+        ? String(body.subcategoria)
+        : "Sin subcategoria",
       precio: Number(body.precio),
       stock: Number(body.stock),
     });
     return jsonOk(creado, 201);
   } catch (error) {
-    return jsonError(400, "no_creado", error instanceof Error ? error.message : "No se pudo crear el producto.");
+    return jsonError(
+      400,
+      "no_creado",
+      error instanceof Error ? error.message : "No se pudo crear el producto.",
+    );
   }
 }

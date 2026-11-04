@@ -8,7 +8,9 @@ interface EditarProductoPageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function EditarProductoPage({ params }: EditarProductoPageProps) {
+export default async function EditarProductoPage({
+  params,
+}: EditarProductoPageProps) {
   const { id } = await params;
   const productoId = Number(id);
 
@@ -23,14 +25,19 @@ export default async function EditarProductoPage({ params }: EditarProductoPageP
     <section className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
       <header className="mb-6">
         <h2 className="text-2xl font-bold text-gray-800">Editar producto</h2>
-        <p className="text-gray-600">Actualiza los datos y guarda en servidor.</p>
+        <p className="text-gray-600">
+          Actualiza los datos y guarda en servidor.
+        </p>
       </header>
 
       <form action={editarProductoAction} className="space-y-4">
         <input type="hidden" name="id" value={producto.id} />
 
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="codigo">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="codigo"
+          >
             Codigo
           </label>
           <input
@@ -43,7 +50,10 @@ export default async function EditarProductoPage({ params }: EditarProductoPageP
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="nombre">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="nombre"
+          >
             Nombre
           </label>
           <input
@@ -56,7 +66,10 @@ export default async function EditarProductoPage({ params }: EditarProductoPageP
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="descripcion">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="descripcion"
+          >
             Descripcion
           </label>
           <textarea
@@ -70,7 +83,10 @@ export default async function EditarProductoPage({ params }: EditarProductoPageP
 
         <div className="grid gap-4 md:grid-cols-2">
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="precio">
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="precio"
+            >
               Precio
             </label>
             <input
@@ -85,7 +101,10 @@ export default async function EditarProductoPage({ params }: EditarProductoPageP
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700" htmlFor="stock">
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="stock"
+            >
               Stock
             </label>
             <input
@@ -101,10 +120,16 @@ export default async function EditarProductoPage({ params }: EditarProductoPageP
         </div>
 
         <div className="flex items-center gap-3">
-          <button type="submit" className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+          <button
+            type="submit"
+            className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          >
             Guardar cambios
           </button>
-          <Link href="/productos" className="rounded-md bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300">
+          <Link
+            href="/productos"
+            className="rounded-md bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300"
+          >
             Cancelar
           </Link>
         </div>

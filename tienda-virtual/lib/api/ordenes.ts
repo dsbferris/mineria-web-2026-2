@@ -185,7 +185,9 @@ async function getOrdenRows(
     params.push(clienteId);
   }
 
-  const whereClause = conditions.length ? ` WHERE ${conditions.join(" AND ")}` : "";
+  const whereClause = conditions.length
+    ? ` WHERE ${conditions.join(" AND ")}`
+    : "";
   const limitClause = limit !== undefined ? " LIMIT ? OFFSET ?" : "";
   const query = `${baseSelect}${whereClause} ORDER BY o.id DESC${limitClause}`;
 
@@ -194,7 +196,10 @@ async function getOrdenRows(
   return db.all<OrdenRow[]>(query, ...params);
 }
 
-async function contarOrdenes(fecha?: string, clienteId?: number): Promise<number> {
+async function contarOrdenes(
+  fecha?: string,
+  clienteId?: number,
+): Promise<number> {
   const db = await getDb();
   const conditions: string[] = [];
   const params: Array<string | number> = [];
@@ -206,7 +211,9 @@ async function contarOrdenes(fecha?: string, clienteId?: number): Promise<number
     conditions.push("c.cliente_id = ?");
     params.push(clienteId);
   }
-  const whereClause = conditions.length ? ` WHERE ${conditions.join(" AND ")}` : "";
+  const whereClause = conditions.length
+    ? ` WHERE ${conditions.join(" AND ")}`
+    : "";
   const query = conditions.length
     ? `SELECT COUNT(1) as total FROM ordenes o INNER JOIN carritos c ON c.id = o.carrito_id${whereClause}`
     : "SELECT COUNT(1) as total FROM ordenes o";
@@ -214,7 +221,9 @@ async function contarOrdenes(fecha?: string, clienteId?: number): Promise<number
   return row?.total ?? 0;
 }
 
-async function getOrdenItemsByOrderIds(orderIds: number[]): Promise<Map<number, OrdenItemRow[]>> {
+async function getOrdenItemsByOrderIds(
+  orderIds: number[],
+): Promise<Map<number, OrdenItemRow[]>> {
   if (!orderIds.length) {
     return new Map<number, OrdenItemRow[]>();
   }
@@ -265,7 +274,9 @@ async function mapOrdenesFromRows(rows: OrdenRow[]): Promise<Orden[]> {
 
 export async function getOrdenesIds(): Promise<number[]> {
   const db = await getDb();
-  const rows = await db.all<Array<{ id: number }>>("SELECT id FROM ordenes ORDER BY id DESC");
+  const rows = await db.all<Array<{ id: number }>>(
+    "SELECT id FROM ordenes ORDER BY id DESC",
+  );
   return rows.map((row) => row.id);
 }
 
@@ -277,7 +288,11 @@ export async function listarPedidosPaginado(
 ): Promise<ResultadoPaginado<Orden>> {
   const fechaIso = fecha ? toIsoDateParam(fecha) : undefined;
   const total = await contarOrdenes(fechaIso, clienteId);
-  const { page, totalPages, offset } = calcularPagina(pageParam, total, pageSize);
+  const { page, totalPages, offset } = calcularPagina(
+    pageParam,
+    total,
+    pageSize,
+  );
 
   const rows = await getOrdenRows(fechaIso, clienteId, pageSize, offset);
   const items = await mapOrdenesFromRows(rows);
@@ -356,7 +371,10 @@ export async function realizarPedido(
       );
     }
 
-    await db.run("UPDATE carritos SET estado = 'cerrado' WHERE id = ?", orden.carrito.id);
+    await db.run(
+      "UPDATE carritos SET estado = 'cerrado' WHERE id = ?",
+      orden.carrito.id,
+    );
     await db.exec("COMMIT;");
     return obtenerPedidoPorId(id);
   } catch (error) {

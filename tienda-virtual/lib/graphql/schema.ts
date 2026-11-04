@@ -130,10 +130,20 @@ export const typeDefs = /* GraphQL */ `
     producto(id: Int!): Producto
     clientes(page: Int = 1, pageSize: Int = 20): ClientePage!
     cliente(id: Int!): Cliente
-    ordenes(page: Int = 1, pageSize: Int = 10, fecha: String, clienteId: Int): OrdenPage!
+    ordenes(
+      page: Int = 1
+      pageSize: Int = 10
+      fecha: String
+      clienteId: Int
+    ): OrdenPage!
     orden(id: Int!): Orden
     testimonios(page: Int = 1, pageSize: Int = 10): TestimonioPage!
-    comentarios(tipo: String!, productoId: Int, ordenId: Int, clienteId: Int): [Comentario!]!
+    comentarios(
+      tipo: String!
+      productoId: Int
+      ordenId: Int
+      clienteId: Int
+    ): [Comentario!]!
   }
 `;
 

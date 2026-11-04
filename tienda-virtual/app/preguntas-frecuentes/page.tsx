@@ -90,11 +90,19 @@ export default function PreguntasFrecuentesPage() {
       itemType="https://schema.org/FAQPage"
       className="space-y-6 rounded-lg bg-white p-6 shadow-md"
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <header>
-        <h2 className="text-3xl font-bold text-gray-800">Preguntas frecuentes</h2>
-        <p className="mt-1 text-gray-600">Resolvemos las dudas mas comunes sobre compras, envios, garantia y devoluciones.</p>
+        <h2 className="text-3xl font-bold text-gray-800">
+          Preguntas frecuentes
+        </h2>
+        <p className="mt-1 text-gray-600">
+          Resolvemos las dudas mas comunes sobre compras, envios, garantia y
+          devoluciones.
+        </p>
       </header>
 
       <dl className="space-y-4">
@@ -111,7 +119,12 @@ export default function PreguntasFrecuentesPage() {
             <dt className="font-semibold text-gray-800" itemProp="name">
               {item.pregunta}
             </dt>
-            <dd className="mt-2 text-sm text-gray-700" itemProp="acceptedAnswer" itemScope itemType="https://schema.org/Answer">
+            <dd
+              className="mt-2 text-sm text-gray-700"
+              itemProp="acceptedAnswer"
+              itemScope
+              itemType="https://schema.org/Answer"
+            >
               <span itemProp="text">{item.respuesta}</span>
             </dd>
           </div>

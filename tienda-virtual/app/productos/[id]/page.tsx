@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProductoPorId, getEspecificacionesPorProducto } from "@/lib/api/productos";
+import {
+  getProductoPorId,
+  getEspecificacionesPorProducto,
+} from "@/lib/api/productos";
 import { getResenasPorProducto } from "@/lib/api/comentarios";
 import { Producto } from "@/lib/modelo/producto";
 import Estrellas from "@/app/components/Estrellas";
@@ -9,9 +12,15 @@ interface ProductoDetallePageProps {
   params: Promise<{ id: string }>;
 }
 
-const fechaFormatter = new Intl.DateTimeFormat("es-PE", { day: "2-digit", month: "2-digit", year: "numeric" });
+const fechaFormatter = new Intl.DateTimeFormat("es-PE", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
 
-export default async function ProductoDetallePage({ params }: ProductoDetallePageProps) {
+export default async function ProductoDetallePage({
+  params,
+}: ProductoDetallePageProps) {
   const { id } = await params;
   const productoId = Number(id);
 
@@ -22,7 +31,11 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
     notFound();
   }
 
-  const { items: resenas, promedio, total } = await getResenasPorProducto(productoId);
+  const {
+    items: resenas,
+    promedio,
+    total,
+  } = await getResenasPorProducto(productoId);
   const especificaciones = await getEspecificacionesPorProducto(productoId);
 
   const jsonLd = {
@@ -37,7 +50,10 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
       "@type": "Offer",
       priceCurrency: "PEN",
       price: producto.precio,
-      availability: producto.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      availability:
+        producto.stock > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
     },
     ...(especificaciones.length > 0
       ? {
@@ -60,8 +76,16 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
             "@id": `comentario-${resena.id}`,
             datePublished: resena.fecha,
             reviewBody: resena.texto,
-            author: { "@type": "Person", name: `${resena.clienteNombre} ${resena.clienteApellidos}` },
-            reviewRating: { "@type": "Rating", ratingValue: resena.calificacion, bestRating: 5, worstRating: 1 },
+            author: {
+              "@type": "Person",
+              name: `${resena.clienteNombre} ${resena.clienteApellidos}`,
+            },
+            reviewRating: {
+              "@type": "Rating",
+              ratingValue: resena.calificacion,
+              bestRating: 5,
+              worstRating: 1,
+            },
           })),
         }
       : {}),
@@ -80,7 +104,10 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
       itemType="https://schema.org/Product"
       className="space-y-6"
     >
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <div className="rounded-lg bg-white p-6 shadow-md">
         <nav className="mb-4 text-sm text-gray-500">
@@ -88,25 +115,36 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
             Productos
           </Link>
           <span className="mx-1">/</span>
-          <span data-categoria-nombre={producto.categoria}>{producto.categoria}</span>
+          <span data-categoria-nombre={producto.categoria}>
+            {producto.categoria}
+          </span>
           <span className="mx-1">/</span>
           <span>{producto.subcategoria}</span>
         </nav>
 
         <header className="mb-4 flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
           <div>
-            <p className="text-xs font-semibold uppercase text-gray-500" data-codigo={producto.codigo}>
+            <p
+              className="text-xs font-semibold uppercase text-gray-500"
+              data-codigo={producto.codigo}
+            >
               {producto.codigo}
             </p>
             <h2 className="text-3xl font-bold text-gray-800" itemProp="name">
               {producto.nombre}
             </h2>
             {total > 0 && (
-              <div className="mt-1 flex items-center gap-2" itemProp="aggregateRating" itemScope itemType="https://schema.org/AggregateRating">
+              <div
+                className="mt-1 flex items-center gap-2"
+                itemProp="aggregateRating"
+                itemScope
+                itemType="https://schema.org/AggregateRating"
+              >
                 <Estrellas calificacion={promedio} />
                 <span className="text-sm text-gray-600">
                   <span itemProp="ratingValue">{promedio}</span> de 5 ({" "}
-                  <span itemProp="reviewCount">{total}</span> {total === 1 ? "resena" : "resenas"})
+                  <span itemProp="reviewCount">{total}</span>{" "}
+                  {total === 1 ? "resena" : "resenas"})
                 </span>
               </div>
             )}
@@ -124,28 +162,47 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
         </p>
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          <div className="rounded-md bg-gray-50 p-4" itemProp="offers" itemScope itemType="https://schema.org/Offer">
-            <p className="text-xs font-semibold uppercase text-gray-500">Precio</p>
+          <div
+            className="rounded-md bg-gray-50 p-4"
+            itemProp="offers"
+            itemScope
+            itemType="https://schema.org/Offer"
+          >
+            <p className="text-xs font-semibold uppercase text-gray-500">
+              Precio
+            </p>
             <p className="text-2xl font-bold text-gray-900">
               S/ <span itemProp="price">{producto.precio.toFixed(2)}</span>
             </p>
             <meta itemProp="priceCurrency" content="PEN" />
           </div>
           <div className="rounded-md bg-gray-50 p-4">
-            <p className="text-xs font-semibold uppercase text-gray-500">Stock disponible</p>
+            <p className="text-xs font-semibold uppercase text-gray-500">
+              Stock disponible
+            </p>
             <p className="text-2xl font-bold text-gray-900">{producto.stock}</p>
           </div>
           <div className="rounded-md bg-gray-50 p-4">
-            <p className="text-xs font-semibold uppercase text-gray-500">Categoria</p>
-            <p className="text-lg font-semibold text-gray-900">{producto.subcategoria}</p>
+            <p className="text-xs font-semibold uppercase text-gray-500">
+              Categoria
+            </p>
+            <p className="text-lg font-semibold text-gray-900">
+              {producto.subcategoria}
+            </p>
           </div>
         </div>
       </div>
 
       {especificaciones.length > 0 && (
         <div className="rounded-lg bg-white p-6 shadow-md">
-          <h3 className="mb-4 text-2xl font-bold text-gray-800">Especificaciones tecnicas</h3>
-          <dl id="especificaciones" data-especificaciones-count={especificaciones.length} className="grid gap-x-8 gap-y-3 sm:grid-cols-2">
+          <h3 className="mb-4 text-2xl font-bold text-gray-800">
+            Especificaciones tecnicas
+          </h3>
+          <dl
+            id="especificaciones"
+            data-especificaciones-count={especificaciones.length}
+            className="grid gap-x-8 gap-y-3 sm:grid-cols-2"
+          >
             {especificaciones.map((espec) => (
               <div
                 key={espec.id}
@@ -160,7 +217,10 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
                 <dt className="text-gray-500" itemProp="name">
                   {espec.clave}
                 </dt>
-                <dd className="text-right font-medium text-gray-900" itemProp="value">
+                <dd
+                  className="text-right font-medium text-gray-900"
+                  itemProp="value"
+                >
                   {espec.valor}
                 </dd>
               </div>
@@ -170,10 +230,14 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
       )}
 
       <div className="rounded-lg bg-white p-6 shadow-md">
-        <h3 className="mb-4 text-2xl font-bold text-gray-800">Opiniones de clientes</h3>
+        <h3 className="mb-4 text-2xl font-bold text-gray-800">
+          Opiniones de clientes
+        </h3>
 
         {resenas.length === 0 ? (
-          <p className="text-gray-600">Este producto todavia no tiene resenas.</p>
+          <p className="text-gray-600">
+            Este producto todavia no tiene resenas.
+          </p>
         ) : (
           <ul className="space-y-4" data-comentarios-count={total}>
             {resenas.map((resena) => (
@@ -193,20 +257,37 @@ export default async function ProductoDetallePage({ params }: ProductoDetallePag
               >
                 <meta itemProp="itemReviewed" content={producto.nombre} />
                 <div className="mb-1 flex items-center justify-between gap-2">
-                  <p className="font-semibold text-gray-800" itemProp="author" itemScope itemType="https://schema.org/Person">
+                  <p
+                    className="font-semibold text-gray-800"
+                    itemProp="author"
+                    itemScope
+                    itemType="https://schema.org/Person"
+                  >
                     <span itemProp="name">
                       {resena.clienteNombre} {resena.clienteApellidos}
                     </span>
                   </p>
-                  <time className="text-xs text-gray-500" dateTime={resena.fecha} itemProp="datePublished">
+                  <time
+                    className="text-xs text-gray-500"
+                    dateTime={resena.fecha}
+                    itemProp="datePublished"
+                  >
                     {fechaFormatter.format(new Date(resena.fecha))}
                   </time>
                 </div>
-                <div className="mb-2" itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                <div
+                  className="mb-2"
+                  itemProp="reviewRating"
+                  itemScope
+                  itemType="https://schema.org/Rating"
+                >
                   <meta itemProp="worstRating" content="1" />
                   <meta itemProp="bestRating" content="5" />
                   <Estrellas calificacion={resena.calificacion} />
-                  <meta itemProp="ratingValue" content={String(resena.calificacion)} />
+                  <meta
+                    itemProp="ratingValue"
+                    content={String(resena.calificacion)}
+                  />
                 </div>
                 <p className="text-sm text-gray-700" itemProp="reviewBody">
                   {resena.texto}

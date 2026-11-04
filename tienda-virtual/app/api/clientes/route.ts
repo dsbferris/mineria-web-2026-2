@@ -14,7 +14,10 @@ export async function GET(req: Request) {
   const resultado = await getClientesPaginado(page, pageSize);
 
   return jsonOk({
-    items: resultado.items.map((c) => ({ ...c, fecha_registro: c.fecha_registro.toISOString().slice(0, 10) })),
+    items: resultado.items.map((c) => ({
+      ...c,
+      fecha_registro: c.fecha_registro.toISOString().slice(0, 10),
+    })),
     pageInfo: {
       page: resultado.page,
       pageSize: resultado.pageSize,
@@ -32,7 +35,8 @@ export async function POST(req: Request) {
 
   const body = await leerJson(req);
   for (const campo of ["dni", "nombre", "apellidos"] as const) {
-    if (!body[campo]) return jsonError(400, "campo_requerido", `Falta el campo '${campo}'.`);
+    if (!body[campo])
+      return jsonError(400, "campo_requerido", `Falta el campo '${campo}'.`);
   }
 
   try {
@@ -44,11 +48,23 @@ export async function POST(req: Request) {
       email: body.email ? String(body.email) : `${dni}@pucp.edu.pe`,
       ciudad: body.ciudad ? String(body.ciudad) : "Lima",
       pais: body.pais ? String(body.pais) : "Peru",
-      fecha_registro: body.fecha_registro ? new Date(String(body.fecha_registro)) : new Date(),
+      fecha_registro: body.fecha_registro
+        ? new Date(String(body.fecha_registro))
+        : new Date(),
       carritos: [],
     });
-    return jsonOk({ ...creado, fecha_registro: creado.fecha_registro.toISOString().slice(0, 10) }, 201);
+    return jsonOk(
+      {
+        ...creado,
+        fecha_registro: creado.fecha_registro.toISOString().slice(0, 10),
+      },
+      201,
+    );
   } catch (error) {
-    return jsonError(400, "no_creado", error instanceof Error ? error.message : "No se pudo crear el cliente.");
+    return jsonError(
+      400,
+      "no_creado",
+      error instanceof Error ? error.message : "No se pudo crear el cliente.",
+    );
   }
 }

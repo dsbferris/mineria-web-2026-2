@@ -7,7 +7,9 @@ import { realizarPedido } from "@/lib/api/ordenes";
 import { parseNumber } from "@/app/actions/helpers";
 import { requireSession } from "@/lib/auth/requireSession";
 
-export async function crearOrdenDesdeCarritoAction(formData: FormData): Promise<void> {
+export async function crearOrdenDesdeCarritoAction(
+  formData: FormData,
+): Promise<void> {
   await requireSession();
   const clienteId = parseNumber(formData.get("clienteId"), "clienteId");
   const carrito = await getCarritoPorCliente(clienteId);

@@ -14,9 +14,17 @@ export async function GET(req: Request) {
   const { page, pageSize } = parsePaginacion(searchParams);
   const fecha = searchParams.get("fecha") ?? undefined;
   const clienteIdRaw = Number(searchParams.get("clienteId"));
-  const clienteId = Number.isInteger(clienteIdRaw) && clienteIdRaw > 0 ? clienteIdRaw : undefined;
+  const clienteId =
+    Number.isInteger(clienteIdRaw) && clienteIdRaw > 0
+      ? clienteIdRaw
+      : undefined;
 
-  const resultado = await listarPedidosPaginado(page, pageSize, fecha, clienteId);
+  const resultado = await listarPedidosPaginado(
+    page,
+    pageSize,
+    fecha,
+    clienteId,
+  );
 
   return jsonOk({
     items: resultado.items.map(toOrdenDTO),

@@ -69,7 +69,10 @@
             "auth": { "type": "noauth" },
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
             ],
             "body": {
               "mode": "urlencoded",
@@ -109,7 +112,9 @@
           "request": {
             "auth": {
               "type": "bearer",
-              "bearer": [{ "key": "token", "value": "{{accessToken}}", "type": "string" }]
+              "bearer": [
+                { "key": "token", "value": "{{accessToken}}", "type": "string" }
+              ]
             },
             "method": "GET",
             "header": [],
@@ -129,7 +134,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"]
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
               }
             }
           ]
@@ -189,7 +196,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"]
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
               }
             }
           ]
@@ -247,7 +256,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"]
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
               }
             }
           ]
@@ -269,7 +280,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"]
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
               }
             }
           ]
@@ -299,7 +312,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"]
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
               }
             }
           ]
@@ -403,7 +418,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"]
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
               }
             }
           ]
@@ -447,7 +464,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 200', () => pm.response.to.have.status(200));"]
+                "exec": [
+                  "pm.test('status 200', () => pm.response.to.have.status(200));"
+                ]
               }
             }
           ]
@@ -754,7 +773,9 @@
               "listen": "test",
               "script": {
                 "type": "text/javascript",
-                "exec": ["pm.test('status 404', () => pm.response.to.have.status(404));"]
+                "exec": [
+                  "pm.test('status 404', () => pm.response.to.have.status(404));"
+                ]
               }
             }
           ]
@@ -764,7 +785,12 @@
           "request": {
             "auth": { "type": "noauth" },
             "method": "POST",
-            "header": [{ "key": "Content-Type", "value": "application/x-www-form-urlencoded" }],
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
             "body": {
               "mode": "urlencoded",
               "urlencoded": [

@@ -44,7 +44,11 @@ function toPublica(row: ApiKeyRow): ApiKeyPublica {
 }
 
 /** Genera un valor de API key nuevo. El texto plano solo se conoce en este momento. */
-export function generarApiKey(): { plaintext: string; prefix: string; hash: string } {
+export function generarApiKey(): {
+  plaintext: string;
+  prefix: string;
+  hash: string;
+} {
   const plaintext = API_KEY_PREFIX + randomBytes(20).toString("hex");
   return { plaintext, prefix: plaintext.slice(0, 12), hash: sha256(plaintext) };
 }
@@ -65,13 +69,18 @@ export async function crearApiKey(
     scopes,
     creadaEn,
   );
-  const row = await db.get<ApiKeyRow>("SELECT * FROM api_keys WHERE id = ?", Number(result.lastID));
+  const row = await db.get<ApiKeyRow>(
+    "SELECT * FROM api_keys WHERE id = ?",
+    Number(result.lastID),
+  );
   return { registro: toPublica(row!), plaintext };
 }
 
 export async function listarApiKeys(): Promise<ApiKeyPublica[]> {
   const db = await getDb();
-  const rows = await db.all<ApiKeyRow[]>("SELECT * FROM api_keys ORDER BY id DESC");
+  const rows = await db.all<ApiKeyRow[]>(
+    "SELECT * FROM api_keys ORDER BY id DESC",
+  );
   return rows.map(toPublica);
 }
 
@@ -84,7 +93,9 @@ export async function revocarApiKey(id: number): Promise<void> {
  * Verifica una API key en claro (header `x-api-key`). Devuelve el registro con
  * sus scopes o null si no existe / esta revocada. Actualiza `ultimo_uso_en`.
  */
-export async function verificarApiKey(plaintext: string | undefined | null): Promise<ApiKeyVerificada | null> {
+export async function verificarApiKey(
+  plaintext: string | undefined | null,
+): Promise<ApiKeyVerificada | null> {
   if (!plaintext) return null;
   const db = await getDb();
   const row = await db.get<ApiKeyRow>(
@@ -92,6 +103,14 @@ export async function verificarApiKey(plaintext: string | undefined | null): Pro
     sha256(plaintext.trim()),
   );
   if (!row) return null;
-  await db.run("UPDATE api_keys SET ultimo_uso_en = ? WHERE id = ?", new Date().toISOString(), row.id);
-  return { id: row.id, nombre: row.nombre, scopes: row.scopes.split(/\s+/).filter(Boolean) };
+  await db.run(
+    "UPDATE api_keys SET ultimo_uso_en = ? WHERE id = ?",
+    new Date().toISOString(),
+    row.id,
+  );
+  return {
+    id: row.id,
+    nombre: row.nombre,
+    scopes: row.scopes.split(/\s+/).filter(Boolean),
+  };
 }

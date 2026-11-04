@@ -52,14 +52,23 @@ export async function verificarClientCredentials(
 ): Promise<OAuthClientRow | null> {
   if (!clientId || !clientSecret) return null;
   const db = await getDb();
-  const row = await db.get<OAuthClientRow>("SELECT * FROM oauth_clients WHERE client_id = ?", clientId.trim());
+  const row = await db.get<OAuthClientRow>(
+    "SELECT * FROM oauth_clients WHERE client_id = ?",
+    clientId.trim(),
+  );
   if (!row) return null;
-  const ok = await verifyPassword(clientSecret, row.client_secret_hash, row.client_secret_salt);
+  const ok = await verifyPassword(
+    clientSecret,
+    row.client_secret_hash,
+    row.client_secret_salt,
+  );
   return ok ? row : null;
 }
 
 /** Emite un JWT de acceso (Bearer) para el flujo client_credentials. */
-export async function emitirAccessToken(client: OAuthClientRow): Promise<AccessTokenRespuesta> {
+export async function emitirAccessToken(
+  client: OAuthClientRow,
+): Promise<AccessTokenRespuesta> {
   const scope = client.scopes;
   const access_token = await new SignJWT({ scope })
     .setProtectedHeader({ alg: "HS256" })
@@ -69,11 +78,18 @@ export async function emitirAccessToken(client: OAuthClientRow): Promise<AccessT
     .setIssuedAt()
     .setExpirationTime(`${ACCESS_TOKEN_TTL}s`)
     .sign(getSecretKey());
-  return { access_token, token_type: "Bearer", expires_in: ACCESS_TOKEN_TTL, scope };
+  return {
+    access_token,
+    token_type: "Bearer",
+    expires_in: ACCESS_TOKEN_TTL,
+    scope,
+  };
 }
 
 /** Verifica un access token OAuth (header `Authorization: Bearer`). */
-export async function verificarAccessToken(token: string | undefined | null): Promise<AccessTokenVerificado | null> {
+export async function verificarAccessToken(
+  token: string | undefined | null,
+): Promise<AccessTokenVerificado | null> {
   if (!token) return null;
   try {
     const { payload } = await jwtVerify(token, getSecretKey(), {
@@ -90,14 +106,20 @@ export async function verificarAccessToken(token: string | undefined | null): Pr
 
 export async function listarOauthClients(): Promise<OAuthClientPublico[]> {
   const db = await getDb();
-  const rows = await db.all<OAuthClientRow[]>("SELECT * FROM oauth_clients ORDER BY id DESC");
+  const rows = await db.all<OAuthClientRow[]>(
+    "SELECT * FROM oauth_clients ORDER BY id DESC",
+  );
   return rows.map(toPublico);
 }
 
 export async function crearOauthClient(
   nombre: string,
   scopes = "read write",
-): Promise<{ registro: OAuthClientPublico; clientId: string; clientSecret: string }> {
+): Promise<{
+  registro: OAuthClientPublico;
+  clientId: string;
+  clientSecret: string;
+}> {
   const db = await getDb();
   const clientId = `client_${randomBytes(8).toString("hex")}`;
   const clientSecret = `secret_${randomBytes(24).toString("hex")}`;
@@ -112,6 +134,9 @@ export async function crearOauthClient(
     scopes,
     new Date().toISOString(),
   );
-  const row = await db.get<OAuthClientRow>("SELECT * FROM oauth_clients WHERE id = ?", Number(result.lastID));
+  const row = await db.get<OAuthClientRow>(
+    "SELECT * FROM oauth_clients WHERE id = ?",
+    Number(result.lastID),
+  );
   return { registro: toPublico(row!), clientId, clientSecret };
 }

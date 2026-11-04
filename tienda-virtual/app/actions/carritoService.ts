@@ -12,7 +12,9 @@ import { getProductoPorId } from "@/lib/api/productos";
 import { Carrito } from "@/lib/modelo/carrito";
 import { ItemCarrito } from "@/lib/modelo/itemCarrito";
 
-export async function obtenerOCrearCarritoPorCliente(clienteId: number): Promise<Carrito> {
+export async function obtenerOCrearCarritoPorCliente(
+  clienteId: number,
+): Promise<Carrito> {
   const existente = await getCarritoPorCliente(clienteId);
   if (existente) {
     return existente;
@@ -41,7 +43,9 @@ export async function agregarAlCarritoPorCliente(
   }
 
   const cantidadFinal = Math.max(1, cantidad);
-  const existente = carrito.items?.find((item) => item.producto.id === producto.id);
+  const existente = carrito.items?.find(
+    (item) => item.producto.id === producto.id,
+  );
 
   if (carrito.id === 0) {
     const nuevoItem: Omit<ItemCarrito, "id"> = {

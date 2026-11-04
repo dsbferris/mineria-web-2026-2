@@ -79,7 +79,9 @@ function hydrateCarrito(row: SeedCarrito): Carrito {
 }
 
 function hydrateOrden(row: SeedOrden): Orden {
-  const carritoRow = db.carritos.find((carrito) => carrito.id === row.carritoId);
+  const carritoRow = db.carritos.find(
+    (carrito) => carrito.id === row.carritoId,
+  );
   if (!carritoRow) {
     throw new Error(`Carrito no encontrado para orden (${row.id})`);
   }
@@ -138,16 +140,22 @@ export async function listProductos(): Promise<Producto[]> {
   return deepClone(db.productos);
 }
 
-export async function addProducto(producto: Omit<Producto, "id">): Promise<Producto> {
+export async function addProducto(
+  producto: Omit<Producto, "id">,
+): Promise<Producto> {
   await simulateDelay();
   const nuevo: Producto = { ...producto, id: db.ids.producto++ };
   db.productos.push(nuevo);
   return deepClone(nuevo);
 }
 
-export async function updateProducto(productoActualizado: Producto): Promise<Producto> {
+export async function updateProducto(
+  productoActualizado: Producto,
+): Promise<Producto> {
   await simulateDelay();
-  const index = db.productos.findIndex((row) => row.id === productoActualizado.id);
+  const index = db.productos.findIndex(
+    (row) => row.id === productoActualizado.id,
+  );
   if (index < 0) {
     throw new Error("Producto no encontrado");
   }
@@ -181,7 +189,9 @@ export async function getClienteById(id: number): Promise<Cliente> {
   return hydrateCliente(clienteById(id));
 }
 
-export async function addCliente(cliente: Omit<Cliente, "id">): Promise<Cliente> {
+export async function addCliente(
+  cliente: Omit<Cliente, "id">,
+): Promise<Cliente> {
   await simulateDelay();
   const nuevo: ClienteRow = {
     id: db.ids.cliente++,
@@ -197,9 +207,13 @@ export async function addCliente(cliente: Omit<Cliente, "id">): Promise<Cliente>
   return hydrateCliente(nuevo);
 }
 
-export async function updateCliente(clienteActualizado: Cliente): Promise<Cliente> {
+export async function updateCliente(
+  clienteActualizado: Cliente,
+): Promise<Cliente> {
   await simulateDelay();
-  const index = db.clientes.findIndex((row) => row.id === clienteActualizado.id);
+  const index = db.clientes.findIndex(
+    (row) => row.id === clienteActualizado.id,
+  );
   if (index < 0) {
     throw new Error("Cliente no encontrado");
   }
@@ -226,7 +240,9 @@ export async function removeCliente(id: number): Promise<void> {
 
   db.clientes.splice(index, 1);
 
-  const carritosIds = db.carritos.filter((row) => row.clienteId === id).map((row) => row.id);
+  const carritosIds = db.carritos
+    .filter((row) => row.clienteId === id)
+    .map((row) => row.id);
   db.carritos = db.carritos.filter((row) => row.clienteId !== id);
   db.ordenes = db.ordenes.filter((row) => !carritosIds.includes(row.carritoId));
 }
@@ -245,7 +261,9 @@ export async function getCarritoById(id: number): Promise<Carrito> {
   return hydrateCarrito(row);
 }
 
-export async function getCarritoByCliente(clienteId: number): Promise<Carrito | undefined> {
+export async function getCarritoByCliente(
+  clienteId: number,
+): Promise<Carrito | undefined> {
   await simulateDelay();
   const row = db.carritos.find((carrito) => carrito.clienteId === clienteId);
   if (!row) {
@@ -261,7 +279,10 @@ export async function createCarrito(payload: Carrito): Promise<Carrito> {
   return hydrateCarrito(row);
 }
 
-export async function updateCarrito(id: number, payload: Carrito): Promise<Carrito> {
+export async function updateCarrito(
+  id: number,
+  payload: Carrito,
+): Promise<Carrito> {
   await simulateDelay();
   const index = db.carritos.findIndex((row) => row.id === id);
   if (index < 0) {
@@ -279,7 +300,9 @@ export async function removeCarrito(id: number): Promise<void> {
   db.ordenes = db.ordenes.filter((row) => row.carritoId !== id);
 }
 
-export async function addItemCarrito(payload: Omit<ItemCarrito, "id">): Promise<Carrito> {
+export async function addItemCarrito(
+  payload: Omit<ItemCarrito, "id">,
+): Promise<Carrito> {
   await simulateDelay();
   const carrito = await getCarritoById(payload.carrito.id);
   const item: ItemCarrito = {
@@ -300,12 +323,17 @@ export async function updateItemCarrito(item: ItemCarrito): Promise<Carrito> {
   const carrito = await getCarritoById(item.carrito.id);
   const actualizado: Carrito = {
     ...carrito,
-    items: (carrito.items ?? []).map((row) => (row.id === item.id ? item : row)),
+    items: (carrito.items ?? []).map((row) =>
+      row.id === item.id ? item : row,
+    ),
   };
   return updateCarrito(actualizado.id, actualizado);
 }
 
-export async function removeItemCarrito(itemId: number, carritoId: number): Promise<Carrito> {
+export async function removeItemCarrito(
+  itemId: number,
+  carritoId: number,
+): Promise<Carrito> {
   await simulateDelay();
   const carrito = await getCarritoById(carritoId);
   const actualizado: Carrito = {

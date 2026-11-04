@@ -3,7 +3,11 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { autenticarUsuario } from "@/lib/auth/usuarios";
-import { crearSesion, SESSION_COOKIE, SESSION_MAX_AGE } from "@/lib/auth/session";
+import {
+  crearSesion,
+  SESSION_COOKIE,
+  SESSION_MAX_AGE,
+} from "@/lib/auth/session";
 
 function rutaSegura(next: FormDataEntryValue | null): string {
   const value = typeof next === "string" ? next : "";

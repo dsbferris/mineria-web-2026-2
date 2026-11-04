@@ -1,7 +1,8 @@
 import { getDb } from "@/lib/db/client";
 import { calcularPagina, ResultadoPaginado } from "@/lib/api/pagination";
 
-export type TipoComentarioFiltro = "producto" | "cliente_general" | "post_compra";
+export type TipoComentarioFiltro =
+  "producto" | "cliente_general" | "post_compra";
 
 export interface ComentarioApi {
   id: number;
@@ -135,7 +136,9 @@ interface ResenaProductoRow {
   fecha_comentario: string;
 }
 
-export async function getResenasPorProducto(productoId: number): Promise<ResumenResenasProducto> {
+export async function getResenasPorProducto(
+  productoId: number,
+): Promise<ResumenResenasProducto> {
   const db = await getDb();
   const rows = await db.all<ResenaProductoRow[]>(
     `SELECT c.id, c.cliente_id, cl.nombre AS cliente_nombre, cl.apellidos AS cliente_apellidos,
@@ -158,7 +161,14 @@ export async function getResenasPorProducto(productoId: number): Promise<Resumen
   }));
 
   const total = items.length;
-  const promedio = total === 0 ? 0 : Number((items.reduce((sum, item) => sum + item.calificacion, 0) / total).toFixed(1));
+  const promedio =
+    total === 0
+      ? 0
+      : Number(
+          (
+            items.reduce((sum, item) => sum + item.calificacion, 0) / total
+          ).toFixed(1),
+        );
 
   return { items, promedio, total };
 }
@@ -169,7 +179,9 @@ interface RatingRow {
   total: number;
 }
 
-export async function getRatingsPorProductos(productoIds: number[]): Promise<Map<number, { promedio: number; total: number }>> {
+export async function getRatingsPorProductos(
+  productoIds: number[],
+): Promise<Map<number, { promedio: number; total: number }>> {
   if (!productoIds.length) {
     return new Map();
   }
@@ -186,7 +198,10 @@ export async function getRatingsPorProductos(productoIds: number[]): Promise<Map
 
   const result = new Map<number, { promedio: number; total: number }>();
   for (const row of rows) {
-    result.set(row.producto_id, { promedio: Number(row.promedio.toFixed(1)), total: row.total });
+    result.set(row.producto_id, {
+      promedio: Number(row.promedio.toFixed(1)),
+      total: row.total,
+    });
   }
   return result;
 }
@@ -203,13 +218,20 @@ interface TestimonioRow {
   fecha_comentario: string;
 }
 
-export async function getTestimoniosPaginado(pageParam: number, pageSize = 10): Promise<ResultadoPaginado<Testimonio>> {
+export async function getTestimoniosPaginado(
+  pageParam: number,
+  pageSize = 10,
+): Promise<ResultadoPaginado<Testimonio>> {
   const db = await getDb();
   const countRow = await db.get<{ total: number }>(
     "SELECT COUNT(1) as total FROM comentarios WHERE tipo = 'cliente_general'",
   );
   const total = countRow?.total ?? 0;
-  const { page, totalPages, offset } = calcularPagina(pageParam, total, pageSize);
+  const { page, totalPages, offset } = calcularPagina(
+    pageParam,
+    total,
+    pageSize,
+  );
 
   const rows = await db.all<TestimonioRow[]>(
     `SELECT c.id, c.cliente_id, cl.nombre AS cliente_nombre, cl.apellidos AS cliente_apellidos,
@@ -252,7 +274,9 @@ interface ResenaEntregaRow {
   fecha_comentario: string;
 }
 
-export async function getResenasEntregaPorOrdenes(ordenIds: number[]): Promise<Map<number, ResenaEntrega[]>> {
+export async function getResenasEntregaPorOrdenes(
+  ordenIds: number[],
+): Promise<Map<number, ResenaEntrega[]>> {
   if (!ordenIds.length) {
     return new Map();
   }

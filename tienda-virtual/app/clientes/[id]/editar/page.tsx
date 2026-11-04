@@ -8,7 +8,9 @@ interface EditarClientePageProps {
   params: Promise<{ id: string }>;
 }
 
-export default async function EditarClientePage({ params }: EditarClientePageProps) {
+export default async function EditarClientePage({
+  params,
+}: EditarClientePageProps) {
   const { id } = await params;
   const clienteId = Number(id);
 
@@ -23,14 +25,19 @@ export default async function EditarClientePage({ params }: EditarClientePagePro
     <section className="mx-auto max-w-2xl rounded-lg bg-white p-6 shadow-md">
       <header className="mb-6">
         <h2 className="text-2xl font-bold text-gray-800">Editar cliente</h2>
-        <p className="text-gray-600">Actualiza los datos y guarda en servidor.</p>
+        <p className="text-gray-600">
+          Actualiza los datos y guarda en servidor.
+        </p>
       </header>
 
       <form action={editarClienteAction} className="space-y-4">
         <input type="hidden" name="id" value={cliente.id} />
 
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="dni">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="dni"
+          >
             DNI
           </label>
           <input
@@ -43,7 +50,10 @@ export default async function EditarClientePage({ params }: EditarClientePagePro
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="nombre">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="nombre"
+          >
             Nombre
           </label>
           <input
@@ -56,7 +66,10 @@ export default async function EditarClientePage({ params }: EditarClientePagePro
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="apellidos">
+          <label
+            className="block text-sm font-medium text-gray-700"
+            htmlFor="apellidos"
+          >
             Apellidos
           </label>
           <input
@@ -69,10 +82,16 @@ export default async function EditarClientePage({ params }: EditarClientePagePro
         </div>
 
         <div className="flex items-center gap-3">
-          <button type="submit" className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+          <button
+            type="submit"
+            className="rounded-md bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+          >
             Guardar cambios
           </button>
-          <Link href="/clientes" className="rounded-md bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300">
+          <Link
+            href="/clientes"
+            className="rounded-md bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300"
+          >
             Cancelar
           </Link>
         </div>

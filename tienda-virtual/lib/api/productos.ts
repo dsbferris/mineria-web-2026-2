@@ -28,15 +28,26 @@ function toProductoModel(row: ProductoRow): Producto {
 
 export async function getProductos(): Promise<Producto[]> {
   const db = await getDb();
-  const rows = await db.all<ProductoRow[]>("SELECT * FROM productos ORDER BY id ASC");
+  const rows = await db.all<ProductoRow[]>(
+    "SELECT * FROM productos ORDER BY id ASC",
+  );
   return rows.map(toProductoModel);
 }
 
-export async function getProductosPaginado(pageParam: number, pageSize = 20): Promise<ResultadoPaginado<Producto>> {
+export async function getProductosPaginado(
+  pageParam: number,
+  pageSize = 20,
+): Promise<ResultadoPaginado<Producto>> {
   const db = await getDb();
-  const countRow = await db.get<{ total: number }>("SELECT COUNT(1) as total FROM productos");
+  const countRow = await db.get<{ total: number }>(
+    "SELECT COUNT(1) as total FROM productos",
+  );
   const total = countRow?.total ?? 0;
-  const { page, totalPages, offset } = calcularPagina(pageParam, total, pageSize);
+  const { page, totalPages, offset } = calcularPagina(
+    pageParam,
+    total,
+    pageSize,
+  );
 
   const rows = await db.all<ProductoRow[]>(
     "SELECT * FROM productos ORDER BY id ASC LIMIT ? OFFSET ?",
@@ -44,12 +55,21 @@ export async function getProductosPaginado(pageParam: number, pageSize = 20): Pr
     offset,
   );
 
-  return { items: rows.map(toProductoModel), page, pageSize, total, totalPages };
+  return {
+    items: rows.map(toProductoModel),
+    page,
+    pageSize,
+    total,
+    totalPages,
+  };
 }
 
 export async function getProductoPorId(id: number): Promise<Producto> {
   const db = await getDb();
-  const row = await db.get<ProductoRow>("SELECT * FROM productos WHERE id = ?", id);
+  const row = await db.get<ProductoRow>(
+    "SELECT * FROM productos WHERE id = ?",
+    id,
+  );
   if (!row) {
     throw new Error("Producto no encontrado");
   }
@@ -63,7 +83,9 @@ export interface Especificacion {
   orden: number;
 }
 
-export async function getEspecificacionesPorProducto(productoId: number): Promise<Especificacion[]> {
+export async function getEspecificacionesPorProducto(
+  productoId: number,
+): Promise<Especificacion[]> {
   const db = await getDb();
   return db.all<Especificacion[]>(
     "SELECT id, clave, valor, orden FROM especificaciones WHERE producto_id = ? ORDER BY orden ASC",
@@ -71,7 +93,9 @@ export async function getEspecificacionesPorProducto(productoId: number): Promis
   );
 }
 
-export async function agregarProducto(producto: Omit<Producto, "id">): Promise<Producto> {
+export async function agregarProducto(
+  producto: Omit<Producto, "id">,
+): Promise<Producto> {
   const db = await getDb();
   const result = await db.run(
     `INSERT INTO productos (codigo, nombre, descripcion, categoria, subcategoria, precio, stock)
@@ -88,7 +112,9 @@ export async function agregarProducto(producto: Omit<Producto, "id">): Promise<P
   return getProductoPorId(Number(result.lastID));
 }
 
-export async function actualizarProducto(productoActualizado: Producto): Promise<Producto> {
+export async function actualizarProducto(
+  productoActualizado: Producto,
+): Promise<Producto> {
   const db = await getDb();
   const result = await db.run(
     `UPDATE productos

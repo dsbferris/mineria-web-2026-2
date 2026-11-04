@@ -1,4 +1,7 @@
-export function parseNumber(value: FormDataEntryValue | null, fieldName: string): number {
+export function parseNumber(
+  value: FormDataEntryValue | null,
+  fieldName: string,
+): number {
   if (typeof value !== "string" || value.trim().length === 0) {
     throw new Error(`El campo ${fieldName} es obligatorio`);
   }
@@ -11,7 +14,10 @@ export function parseNumber(value: FormDataEntryValue | null, fieldName: string)
   return parsed;
 }
 
-export function parseText(value: FormDataEntryValue | null, fieldName: string): string {
+export function parseText(
+  value: FormDataEntryValue | null,
+  fieldName: string,
+): string {
   if (typeof value !== "string" || value.trim().length === 0) {
     throw new Error(`El campo ${fieldName} es obligatorio`);
   }
