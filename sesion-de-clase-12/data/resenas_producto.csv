@@ -1,0 +1,319 @@
+id,cliente_id,producto_id,calificacion,fecha,texto
+1,1,1,5,2024-02-10,"El iPhone 15 Pro Max tiene una camara espectacular, las fotos de noche salen muy nitidas."
+2,2,2,4,2024-02-18,Buen rendimiento del iPhone 15 pero la bateria baja rapido cuando uso la camara seguido.
+3,3,3,5,2024-02-25,El S Pen del Galaxy S24 Ultra es muy util para tomar notas rapidas en reuniones.
+4,4,4,4,2024-03-03,"El Galaxy A55 cumple bien para uso diario, la pantalla se ve muy bien por el precio."
+5,5,5,3,2024-03-11,El Redmi Note 13 Pro es correcto pero el software trae bastante publicidad preinstalada.
+6,6,6,4,2024-03-19,"El Poco X6 Pro va fluido incluso en juegos exigentes, buena relacion precio rendimiento."
+7,7,7,5,2024-03-27,"La camara del Pixel 8 procesa las fotos de forma impresionante, mejor que equipos mas caros."
+8,8,8,3,2024-04-04,El Moto G84 anda bien pero el procesador se nota lento al abrir varias apps a la vez.
+9,9,9,2,2024-04-12,"El Galaxy A15 es muy basico, la camara tiene mucho ruido en ambientes con poca luz."
+10,10,10,5,2024-04-20,"La carga rapida del OnePlus 12 es impresionante, en media hora ya esta al 100%."
+11,11,11,5,2024-04-28,El MacBook Air M2 es silencioso y muy rapido para edicion de video liviana.
+12,12,12,5,2024-05-06,"El MacBook Pro 14 con M3 corre Final Cut sin ningun problema, excelente para trabajo profesional."
+13,13,13,4,2024-05-14,La pantalla del Dell XPS 13 es hermosa pero el precio es bastante elevado.
+14,14,14,3,2024-05-22,"La HP Pavilion 15 cumple para tareas de oficina, aunque el ventilador suena bastante."
+15,15,15,4,2024-05-30,La IdeaPad Slim 3 es liviana y practica para llevar a la universidad todos los dias.
+16,16,16,5,2024-06-07,La ASUS ROG Strix corre todos mis juegos en configuracion alta sin problema.
+17,17,17,5,2024-06-15,La Legion 5 Pro tiene una pantalla de 165Hz que se nota muchisimo jugando shooters.
+18,18,18,4,2024-06-23,"La Acer Aspire 5 es una laptop confiable para estudiantes, buena relacion precio calidad."
+19,19,19,2,2024-07-01,La HP Omen 16 se calienta demasiado despues de una hora de uso continuo.
+20,20,20,5,2024-07-09,El teclado de la ThinkPad E14 es de los mejores que he probado para escribir largo rato.
+21,21,21,5,2024-07-17,La cancelacion de ruido de los Sony WH-1000XM5 es simplemente la mejor del mercado.
+22,22,22,4,2024-07-25,"Los AirPods Pro se conectan muy bien con mis dispositivos Apple, el audio es muy claro."
+23,23,23,5,2024-08-02,Los Bose QuietComfort Ultra son comodisimos para usar durante vuelos largos.
+24,24,24,4,2024-08-10,El JBL Flip 6 suena fuerte para su tamano y resiste bien salpicaduras de agua.
+25,25,25,5,2024-08-18,El JBL Charge 5 ademas de sonar muy bien me sirvio como power bank en un camping.
+26,26,26,3,2024-08-26,"El Sony SRS-XB13 es pequeno y practico, aunque el volumen maximo se queda corto."
+27,27,27,4,2024-09-03,Los Galaxy Buds2 Pro tienen buen ajuste al oido y la app de Samsung facilita la configuracion.
+28,28,28,5,2024-09-11,El Marshall Emberton II tiene un diseno espectacular y el sonido es muy equilibrado.
+29,29,29,4,2024-09-19,"Los Sennheiser Momentum 4 duran muchisimos dias con una sola carga, excelente autonomia."
+30,30,30,3,2024-09-27,Los JBL Tune 510BT son correctos para el precio pero el microfono se escucha bajito.
+31,31,31,5,2024-10-05,"El LG OLED55C3 tiene negros perfectos, se nota la diferencia frente a un LED comun."
+32,32,32,5,2024-10-13,El Samsung QN65Q80C con Object Tracking Sound hace que el sonido siga la accion en pantalla.
+33,33,33,4,2024-10-21,"El Sony Bravia A80L tiene un procesador de imagen excelente, aunque el precio es alto."
+34,34,34,3,2024-10-29,El TCL de 50 pulgadas cumple bien pero el Google TV a veces se traba al abrir apps.
+35,35,35,4,2024-11-06,El Hisense ULED U6 tiene buen contraste para su rango de precio.
+36,36,36,3,2024-11-14,El Samsung Crystal UHD de 43 pulgadas es una buena opcion para un dormitorio.
+37,37,37,4,2024-11-22,El LG UR8000 tiene una interfaz webOS muy fluida y facil de usar.
+38,38,38,4,2024-11-30,El Xiaomi TV A Pro trae Google TV integrado y el audio Dolby se escucha muy bien.
+39,39,39,2,2024-12-08,El Sony X75L de 65 pulgadas no tiene el mejor contraste en escenas oscuras.
+40,40,40,5,2024-12-16,El Samsung The Frame es una pieza de decoracion ademas de un television excelente.
+41,41,41,5,2024-12-24,"El PS5 Slim carga los juegos casi al instante gracias al SSD, una diferencia enorme."
+42,42,42,4,2025-01-01,"La PS5 Digital Edition es perfecta si ya compras todo en digital, ahorra espacio en la sala."
+43,43,43,4,2025-01-09,"La Xbox Series X corre todo en 4K nativo, el Game Pass hace que valga aun mas la pena."
+44,44,44,5,2025-01-17,"La Switch OLED tiene una pantalla mucho mejor que el modelo anterior, se nota en modo portatil."
+45,45,45,3,2025-01-25,La Switch Lite es comoda pero al no tener modo TV se siente limitada para la familia.
+46,46,46,5,2025-02-02,"El Logitech G502 Hero tiene un sensor muy preciso, ideal para juegos de puntaria."
+47,47,47,5,2025-02-10,El Razer DeathAdder V3 es comodisimo incluso en sesiones largas de juego.
+48,48,48,3,2025-02-18,El HyperX Cloud II suena bien pero las almohadillas se sienten calurosas con el tiempo.
+49,49,49,4,2025-02-26,El SteelSeries Arctis Nova 7 tiene un audio espacial que se nota muy bien en juegos FPS.
+50,50,50,4,2025-03-06,"El Razer Kishi V2 convierte el celular en una consola portatil, muy practico para viajar."
+51,51,51,5,2025-03-14,El Apple Watch Series 9 mide muy bien el oxigeno en sangre y el sueno durante la noche.
+52,52,52,5,2025-03-22,"El Apple Watch Ultra 2 aguanta perfecto corriendo trail, la bateria dura todo el fin de semana."
+53,53,53,4,2025-03-30,El Galaxy Watch6 Classic tiene un bisel giratorio que hace la navegacion muy intuitiva.
+54,54,54,5,2025-04-07,El Garmin Forerunner 265 da metricas de entrenamiento muy completas para corredores.
+55,55,55,4,2025-04-15,El Garmin Fenix 7 tiene mapas topograficos que ayudan mucho en rutas de montana.
+56,56,56,4,2025-04-23,La Xiaomi Smart Band 8 es economica y tiene una pantalla AMOLED sorprendente para su precio.
+57,57,57,3,2025-05-01,El Fitbit Charge 6 mide bien el ritmo cardiaco pero la app se siente algo lenta.
+58,58,58,4,2025-05-09,El Amazfit GTS 4 Mini es liviano y comodo para usar todo el dia sin notarlo.
+59,59,59,5,2025-05-17,El Garmin Venu 3 tiene un coach de sueno que realmente ayuda a mejorar los habitos de descanso.
+60,60,60,4,2025-05-25,El Huawei Watch GT 4 tiene un diseno elegante que combina bien con ropa formal.
+61,61,61,5,2025-06-02,"La Canon EOS R50 es perfecta para empezar en fotografia, el autoenfoque es muy rapido."
+62,62,62,5,2025-06-10,La Sony a6400 tiene un autoenfoque excelente para grabar videos en movimiento.
+63,63,63,3,2025-06-18,La Canon Rebel T7 es basica pero suficiente para aprender los fundamentos de fotografia.
+64,64,64,5,2025-06-26,La GoPro HERO12 estabiliza increiblemente bien en actividades de mucho movimiento.
+65,65,65,4,2025-07-04,La DJI Osmo Action 4 graba muy bien en condiciones de poca luz comparada con otras camaras de accion.
+66,66,66,5,2025-07-12,"El DJI Mini 4 Pro pesa muy poco y evita obstaculos automaticamente, vuela sin estres."
+67,67,67,4,2025-07-20,El DJI Air 3 tiene doble camara que permite tomas gran angular y zoom sin perder calidad.
+68,68,68,4,2025-07-28,La Nikon Z50 es compacta y el video 4K se ve muy nitido.
+69,69,69,3,2025-08-05,La Fujifilm Instax Mini 12 es divertida para eventos pero el costo del papel sube rapido.
+70,70,70,5,2025-08-13,La Insta360 X4 graba en 8K y la estabilizacion FlowState es impresionante en bicicleta.
+71,71,71,4,2025-08-21,"El Echo Dot funciona muy bien como centro de mi casa inteligente, Alexa responde rapido."
+72,72,72,3,2025-08-29,El Google Nest Mini tiene buen sonido para su tamano pero a veces no entiende bien el acento.
+73,73,73,5,2025-09-06,"El robot Xiaomi X10+ se auto vacia solo, no tengo que preocuparme por semanas."
+74,74,74,3,2025-09-14,La Roomba 694 limpia bien pero se atora seguido con los cables del piso.
+75,75,75,4,2025-09-22,"El kit Philips Hue le dio otro ambiente a mi sala, los colores son muy vivos."
+76,76,76,4,2025-09-30,"La camara TP-Link Tapo C220 tiene buena vision nocturna a color, se ve todo muy claro."
+77,77,77,2,2025-10-08,El Ring Doorbell a veces tarda varios segundos en enviar la notificacion de movimiento.
+78,78,78,4,2025-10-16,El hervidor Xiaomi controla bien la temperatura exacta para cada tipo de te.
+79,79,79,5,2025-10-24,"La Instant Pot Duo reemplazo tres electrodomesticos en mi cocina, ahorro mucho espacio."
+80,80,80,4,2025-11-01,La Samsung Family Hub tiene camaras internas muy utiles para revisar que falta comprar.
+81,81,81,5,2025-11-09,El Logitech MX Master 3S tiene un scroll electromagnetico que se siente premium al usarlo.
+82,82,82,5,2025-11-17,El power bank Anker 737 carga mi laptop y celular varias veces sin quedarse sin bateria.
+83,83,83,4,2025-11-25,El cable Anker PowerLine III sigue funcionando perfecto despues de meses de uso diario.
+84,84,84,5,2025-12-03,"El SSD Kingston NV2 hizo que mi PC arranque en segundos, cambio total de velocidad."
+85,85,85,4,2025-12-11,El SSD portatil Samsung T7 es rapido y la carcasa se siente resistente a caidas.
+86,86,86,3,2025-12-19,La microSD SanDisk cumple bien en la camara de accion aunque el precio subio ultimamente.
+87,87,87,4,2025-12-27,La RAM Corsair Vengeance instalo sin problemas y mejoro notablemente el rendimiento de mi PC.
+88,88,88,3,2026-01-04,El disco WD Blue de 2TB es silencioso pero la velocidad de transferencia es la esperada para un HDD.
+89,89,89,4,2026-01-12,El cargador Belkin de 30W es compacto y carga el celular bastante rapido.
+90,90,90,5,2026-01-20,"La webcam Logitech C920 se ve muy nitida en videollamadas, el enfoque automatico funciona genial."
+91,61,1,4,2026-01-28,"Compre el iPhone 15 Pro Max para trabajo y la fluidez de iOS es notable, aunque es caro."
+92,62,2,5,2026-02-05,"El iPhone 15 es mas que suficiente para uso diario, no necesite el modelo Pro."
+93,63,3,4,2026-02-13,El S24 Ultra tiene un zoom de camara impresionante para fotos lejanas.
+94,64,4,3,2026-02-21,El Galaxy A55 se calienta un poco jugando por periodos largos.
+95,65,5,4,2026-03-01,El Redmi Note 13 Pro tiene una pantalla AMOLED muy buena para el precio que paga.
+96,66,6,3,2026-03-09,El Poco X6 Pro calienta un poco el cuerpo trasero durante partidas largas.
+97,67,7,4,2026-03-17,"El Pixel 8 recibe actualizaciones de Android muy rapido, se siente siempre al dia."
+98,68,8,4,2026-03-25,El Moto G84 tiene una bateria que rinde todo el dia sin problema.
+99,69,9,3,2026-04-02,El Galaxy A15 es una opcion valida solo si el presupuesto es muy ajustado.
+100,70,10,4,2026-04-10,El OnePlus 12 tiene una interfaz OxygenOS muy limpia comparada con otras marcas.
+101,71,11,4,2026-04-18,El MacBook Air M2 no tiene ventilador y aun asi nunca se ha sentido caliente.
+102,72,12,5,2026-04-26,El MacBook Pro M3 exporta videos 4K en la mitad del tiempo que mi laptop anterior.
+103,73,13,3,2026-05-04,"El Dell XPS 13 tiene pocos puertos, necesite comprar un adaptador aparte."
+104,14,14,4,2026-05-12,La HP Pavilion 15 es suficiente para clases virtuales y trabajos de oficina.
+105,15,15,3,2026-05-20,La IdeaPad Slim 3 tiene una pantalla algo opaca en exteriores.
+106,16,16,4,2026-05-28,La ROG Strix es pesada para llevarla a diario pero el rendimiento en juegos vale la pena.
+107,17,17,4,2026-06-05,"La Legion 5 Pro tiene un chasis muy resistente, se siente bien construida."
+108,18,18,5,2026-06-13,"La Acer Aspire 5 curso todo un semestre sin fallar, muy recomendable para estudiantes."
+109,19,19,3,2026-06-21,La HP Omen 16 tiene buenos graficos pero la bateria dura poco fuera del enchufe.
+110,20,20,5,2026-06-29,La ThinkPad E14 paso todas las pruebas de resistencia de mi trabajo de campo.
+111,21,21,4,2026-07-07,Los Sony WH-1000XM5 son comodos pero se sienten algo apretados con lentes.
+112,22,22,5,2026-07-15,Los AirPods Pro cambian automaticamente entre mis dispositivos Apple sin ningun corte.
+113,23,23,4,2026-07-23,Los Bose QuietComfort Ultra tienen un modo de audio inmersivo que se siente muy envolvente.
+114,24,24,3,2026-07-31,El JBL Flip 6 pierde algo de graves al subir el volumen al maximo.
+115,25,25,4,2026-08-08,El JBL Charge 5 aguanta toda una reunion familiar sin quedarse sin bateria.
+116,26,27,4,2024-02-14,Los Galaxy Buds2 Pro tienen un modo ambiente muy natural para escuchar el entorno.
+117,27,28,3,2024-03-15,"El Marshall Emberton II no tiene resistencia total al agua, solo salpicaduras."
+118,28,29,5,2024-04-16,Los Sennheiser Momentum 4 tienen un sonido muy detallado en graves y agudos.
+119,29,31,4,2024-05-18,"El LG OLED55C3 tiene un modo gaming con muy poco input lag, ideal para consola."
+120,30,32,3,2024-06-19,El Samsung QN65Q80C brilla mucho de dia pero refleja bastante con luz ambiental.
+121,31,33,5,2024-07-21,El Sony Bravia A80L tiene el mejor procesamiento de movimiento que he visto en un TV.
+122,32,41,5,2024-08-22,El PS5 Slim ocupa menos espacio que el modelo original y se ve igual de bien.
+123,33,43,3,2024-09-23,La Xbox Series X es ruidosa cuando corre juegos muy exigentes por mucho tiempo.
+124,34,44,5,2024-10-25,"La Switch OLED tiene un sonido mejorado en los parlantes internos, se nota jugando sin audifonos."
+125,35,46,4,2024-11-26,El mouse G502 tiene pesas ajustables que permiten personalizar el agarre.
+126,36,51,4,2024-12-28,"El Apple Watch Series 9 detecta caidas automaticamente, da mucha tranquilidad."
+127,37,54,4,2025-01-29,El Garmin Forerunner 265 calcula muy bien el tiempo de recuperacion despues de correr.
+128,38,56,5,2025-03-02,La Xiaomi Smart Band 8 dura mas de una semana con una sola carga.
+129,39,61,4,2025-04-03,La Canon EOS R50 tiene un modo video vertical pensado para redes sociales.
+130,40,64,5,2025-05-05,La GoPro HERO12 tiene una bateria que ahora dura mucho mas que generaciones anteriores.
+131,41,66,4,2025-06-06,"El DJI Mini 4 Pro no requiere licencia de piloto por su peso reducido, muy conveniente."
+132,42,73,4,2025-07-08,El robot aspiradora Xiaomi mapea la casa con mucha precision desde el primer uso.
+133,43,75,3,2025-08-09,El kit Philips Hue requiere un puente adicional que no siempre viene incluido.
+134,44,79,5,2025-09-10,La Instant Pot Duo cocina en la mitad de tiempo que una olla tradicional.
+135,45,81,5,2025-10-12,"El Logitech MX Master 3S funciona sobre cualquier superficie, incluso sobre vidrio."
+136,46,82,4,2025-11-13,El Anker 737 tiene una pantalla que muestra el porcentaje exacto de bateria restante.
+137,47,84,5,2025-12-15,El SSD Kingston NV2 vino con un disipador que ayuda mucho a mantener temperaturas bajas.
+138,48,87,4,2026-01-16,La RAM Corsair Vengeance tiene un perfil XMP que facilita activar la velocidad maxima.
+139,49,90,4,2026-02-17,La webcam Logitech C920 incluye un cover de privacidad que se agradece mucho.
+140,50,12,4,2026-03-18,El MacBook Pro M3 tiene una pantalla mini LED que hace que los colores se vean impresionantes.
+141,51,16,3,2026-04-19,La ASUS ROG Strix trae bastante software preinstalado que toca desinstalar.
+142,52,21,5,2026-05-20,Los Sony WH-1000XM5 detectan automaticamente cuando hablo y bajan la musica.
+143,53,31,4,2026-06-21,El LG OLED55C3 tiene un brillo maximo algo limitado comparado con modelos QLED.
+144,54,41,4,2026-07-22,"El PS5 Slim viene con menos almacenamiento del esperado, tuve que ampliar con SSD externo."
+145,55,44,5,2026-08-01,"La Switch OLED es perfecta para viajar, la use mucho en un vuelo largo sin problemas."
+146,56,52,5,2024-02-06,"El Apple Watch Ultra 2 tiene una pantalla muy brillante, se lee perfecto bajo el sol."
+147,57,62,4,2024-03-08,La Sony a6400 tiene buena calidad de imagen en interiores con poca luz.
+148,58,65,3,2024-04-09,La DJI Osmo Action 4 tiene una app que a veces tarda en sincronizar los videos.
+149,59,71,4,2024-05-11,El Echo Dot se integra bien con mis focos inteligentes para automatizar rutinas.
+150,60,85,4,2024-06-12,El SSD portatil Samsung T7 cabe en el bolsillo y no necesita cable de alimentacion externo.
+151,62,1,2,2024-03-05,"El precio me parece excesivo para el salto de funciones frente al modelo anterior. Ademas, no trae cargador en la caja, asi que termine pagando de mas por accesorios aparte."
+152,66,2,3,2024-03-12,El almacenamiento de 128GB se queda corto muy rapido con fotos y videos en 4K. Tuve que borrar contenido cada dos semanas para liberar espacio.
+153,70,3,2,2024-03-19,El S Pen se siente fragil y ya se le nota desgaste en la punta despues de pocos meses. Para el precio que tiene esperaba mejores materiales.
+154,74,4,2,2024-03-26,La camara nocturna deja bastante ruido en fotos con poca luz. Esperaba mejor rendimiento tomando en cuenta lo que pague.
+155,78,5,1,2024-04-02,El sistema viene con demasiada publicidad preinstalada y aplicaciones que nunca uso. Tuve que pasar la primera hora desinstalando cosas innecesarias.
+156,82,6,2,2024-04-09,El telefono calienta bastante jugando mas de veinte minutos seguidos. El rendimiento baja notoriamente cuando eso pasa.
+157,86,7,3,2024-04-16,Es un buen telefono pero la autonomia de bateria se queda corta para un dia completo de uso intenso. Termino cargandolo a media tarde siempre.
+158,90,8,2,2024-04-23,El procesador se traba seguido al abrir varias aplicaciones a la vez. No lo recomendaria para quienes hacen multitarea pesada.
+159,94,9,1,2024-04-30,La camara tiene mucho ruido en ambientes con poca luz y el rendimiento general es lento. Para el uso diario se siente limitado desde el primer dia.
+160,98,10,2,2024-05-07,El software OxygenOS trae bastante bloatware que no se puede desinstalar del todo. Esperaba una experiencia mas limpia en un equipo de este precio.
+161,102,11,2,2024-05-14,Solo 8GB de RAM se sienten justos para edicion de video pesada. Tuve que cerrar varias aplicaciones para que Final Cut no se trabara.
+162,106,12,3,2024-05-21,Excelente potencia pero el precio es dificil de justificar si no se usa profesionalmente. Para uso basico es una inversion sobredimensionada.
+163,110,13,2,2024-05-28,"Muy pocos puertos, tuve que comprar un adaptador aparte para conectar mi mouse y un disco externo al mismo tiempo. Deberia incluirlo en la caja."
+164,114,14,2,2024-06-04,El ventilador suena bastante incluso con tareas basicas de oficina. Se nota que el sistema de refrigeracion no es el mejor de su categoria.
+165,118,15,3,2024-06-11,Cumple para tareas simples pero la pantalla se ve opaca en exteriores. Para uso en espacios con mucha luz natural no es la mejor opcion.
+166,3,16,2,2024-06-18,Es pesada para llevarla a diario en mochila. El rendimiento en juegos es bueno pero el peso pasa factura en movilidad.
+167,7,17,2,2024-06-25,"La bateria dura muy poco fuera del enchufe, apenas dos horas jugando. Para algo portatil ese es un punto negativo importante."
+168,11,19,1,2024-07-02,Se calienta demasiado despues de una hora de uso continuo y el ventilador se escucha muy fuerte. El sistema de refrigeracion no da abasto con juegos exigentes.
+169,15,21,2,2024-07-09,Son comodos pero se sienten apretados si usas lentes por periodos largos. Despues de dos horas empiezan a incomodar.
+170,19,24,2,2024-07-16,El parlante pierde bastante calidad de graves al subir el volumen al maximo. Para reuniones pequenas funciona bien pero no mas que eso.
+171,23,26,3,2024-07-23,El volumen maximo se queda corto para espacios abiertos. Es practico por el tamano pero limitado en potencia.
+172,27,30,2,2024-07-30,El microfono integrado se escucha muy bajo en llamadas. Tuve que usar audifonos con cable para videollamadas importantes.
+173,31,34,3,2024-08-06,El Google TV integrado a veces se traba al abrir aplicaciones de streaming. Hay que reiniciarlo cada cierto tiempo para que vuelva a funcionar bien.
+174,35,36,2,2024-08-13,El brillo maximo se queda corto en un cuarto con mucha luz natural durante el dia. Se nota reflejo incluso con las cortinas cerradas.
+175,39,39,2,2024-08-20,"El contraste en escenas oscuras no es el mejor, se pierden detalles en peliculas de accion nocturna. Esperaba mas de un television de este rango de precio."
+176,43,42,3,2024-08-27,Sin lector de discos se depende completamente de las descargas digitales. Si tienes juegos fisicos esta version no te sirve.
+177,47,45,2,2024-09-03,Al no tener modo TV se siente bastante limitada para jugar en familia. Solo sirve para uso individual portatil.
+178,51,48,3,2024-09-10,Las almohadillas se sienten calurosas despues de un par de horas de uso continuo. El sonido es bueno pero la comodidad baja con el tiempo.
+179,55,50,2,2024-09-17,La conexion con el celular a veces se corta durante partidas largas. Tuve que reiniciar el emparejamiento varias veces.
+180,59,53,2,2024-09-24,El bisel giratorio empieza a sentirse flojo despues de varios meses de uso diario. Para el precio esperaba mejor durabilidad en esa pieza.
+181,63,57,3,2024-10-01,La app de sincronizacion se siente lenta comparada con otras marcas. El sensor de ritmo cardiaco es preciso pero la experiencia de software deja que desear.
+182,67,60,2,2024-10-08,El monitoreo del sueno a veces marca datos inconsistentes noche tras noche. No terminé de confiar en las metricas que reporta.
+183,71,63,3,2024-10-15,Es basica para quien recien empieza pero el autoenfoque es lento comparado con modelos mirrorless actuales. Cumple para aprender pero se queda corta rapido.
+184,75,65,2,2024-10-22,La app de DJI tarda en sincronizar los videos grabados despues de cada sesion. A veces perdi tiempo esperando que termine de procesar.
+185,79,69,2,2024-10-29,El costo del papel para imprimir sube rapido si la usas seguido. Es divertida para eventos puntuales pero no para uso frecuente.
+186,83,72,2,2024-11-05,A veces no entiende bien el acento al dar comandos de voz. Tengo que repetir la orden dos o tres veces para que funcione.
+187,87,74,2,2024-11-12,"Se atora seguido con los cables sueltos del piso, tengo que recogerlos antes de cada limpieza. No es tan autonoma como esperaba."
+188,91,77,2,2024-11-19,La notificacion de movimiento a veces tarda varios segundos en llegar al celular. Para seguridad esperaba una respuesta mas inmediata.
+189,95,80,3,2024-11-26,Es una refrigeradora impresionante pero el precio la hace inaccesible para la mayoria. Las funciones inteligentes son un lujo mas que una necesidad.
+190,99,86,3,2024-12-03,El precio de las tarjetas de esta capacidad subio bastante ultimamente. Sigue siendo confiable pero ya no es tan conveniente como antes.
+191,103,88,3,2024-12-10,"La velocidad de transferencia es la esperada para un disco mecanico, nada extraordinario. Si buscas rapidez real hay que ir por un SSD."
+192,107,6,2,2024-12-17,El cuerpo trasero calienta bastante durante partidas largas de mas de una hora. El rendimiento baja un poco cuando eso ocurre.
+193,111,9,2,2024-12-24,"Es una opcion valida solo si el presupuesto es muy ajustado, el rendimiento general se siente limitado. No lo recomendaria para uso intensivo."
+194,115,14,3,2025-01-07,Suficiente para clases virtuales pero se queda corta para edicion de fotos o video. Para tareas basicas cumple sin problema.
+195,119,34,2,2025-01-14,El sistema operativo integrado se siente lento al navegar entre aplicaciones. Hay una demora notoria al abrir cada app de streaming.
+196,4,36,3,2025-01-21,Buena opcion para un dormitorio pero el sonido de los parlantes internos es bastante plano. Recomendaria una barra de sonido aparte.
+197,8,45,2,2025-01-28,"La pantalla pequena hace que algunos juegos se sientan incomodos de jugar por periodos largos. Para ninos puede ser una buena opcion, para adultos es limitada."
+198,12,74,3,2025-02-04,El sensor de navegacion a veces pierde el mapa guardado y tengo que recalibrar la limpieza. Fuera de eso cumple bien con su trabajo.
+199,16,41,5,2025-02-11,"Los tiempos de carga son casi instantaneos gracias al SSD, se nota muchisimo la diferencia frente a la generacion anterior. Cambio totalmente la forma de jugar sesiones largas sin esperar pantallas de carga."
+200,20,42,4,2025-02-18,"Perfecta si ya tienes tu biblioteca en digital, ahorra espacio y se ve igual de bien que la version con lector. El unico detalle es planificar bien el almacenamiento porque no se puede ampliar con discos fisicos."
+201,24,43,5,2025-02-25,El Game Pass hace que valga muchisimo la pena ademas del propio hardware. Corre todo en 4K nativo sin bajones de rendimiento en los juegos que probe.
+202,28,44,5,2025-03-04,"La pantalla OLED se nota muchisimo mejor que el modelo anterior, los colores son mas vivos en modo portatil. El sonido de los parlantes internos tambien mejoro notablemente."
+203,32,45,4,2025-03-11,Ideal para viajes largos por lo compacta y ligera que es. Los Joy-Con se sienten comodos incluso para manos grandes durante sesiones largas.
+204,36,46,5,2025-03-18,Las pesas ajustables permiten personalizar el agarre segun el juego que estes jugando. El sensor HERO responde con muchisima precision en titulos competitivos.
+205,40,47,5,2025-03-25,El sensor optico es extremadamente preciso incluso en superficies dificiles. La forma ergonomica hace que las sesiones largas no cansen la mano.
+206,44,48,4,2025-04-01,El sonido envolvente virtual se nota bien en juegos de terror y shooters. El microfono desmontable es un extra util para quienes no siempre necesitan hablar.
+207,48,49,5,2025-04-08,El audio espacial ayuda mucho a ubicar pasos enemigos en juegos competitivos. La bateria de 38 horas dura facilmente toda una semana de uso normal.
+208,52,50,4,2025-04-15,"Convierte cualquier smartphone en una consola portatil de verdad, muy comodo para viajes. La compatibilidad con Android e iOS lo hace versatil para toda la familia."
+209,56,51,5,2025-04-22,El sensor de oxigeno en sangre y el monitoreo de sueno se sienten muy precisos comparados con otros wearables que probe antes. La pantalla Always-On es comoda para revisar la hora sin tener que mover la muneca.
+210,60,52,5,2025-04-29,El GPS de doble frecuencia es notablemente mas preciso en zonas con edificios altos. La resistencia para deportes extremos cumple todo lo que promete la marca.
+211,64,53,4,2025-05-06,El bisel giratorio fisico hace que navegar por los menus sea muy intuitivo comparado con pantallas tactiles puras. El monitoreo de salud es completo y facil de leer.
+212,68,54,5,2025-05-13,Las metricas de entrenamiento son de nivel profesional para un reloj de este precio. El calculo del tiempo de recuperacion despues de correr es sorprendentemente acertado.
+213,72,55,5,2025-05-20,Los mapas topograficos ayudan muchisimo en rutas de montana sin senal. La bateria realmente dura los 18 dias prometidos con uso normal de GPS ocasional.
+214,76,56,5,2025-05-27,La pantalla AMOLED se ve espectacular para el precio tan bajo que tiene. Dura mas de una semana con una sola carga incluso usando el GPS conectado al celular.
+215,80,57,4,2025-06-03,"El GPS integrado permite salir a correr sin llevar el celular, algo que valoro mucho. El seguimiento de frecuencia cardiaca 24/7 se siente consistente dia a dia."
+216,84,58,4,2025-06-10,Es delgado y comodo para usar todo el dia sin notarlo en la muneca. Los mas de 120 modos deportivos cubren practicamente cualquier actividad que hago.
+217,88,59,5,2025-06-17,El coach de sueno realmente ayudo a mejorar mis habitos de descanso en pocas semanas. La bateria de 14 dias hace que casi me olvide de cargarlo.
+218,92,60,4,2025-06-24,El diseno elegante combina perfectamente con ropa formal para la oficina. El monitoreo cientifico del sueno da reportes bastante detallados cada manana.
+219,96,61,5,2025-07-01,"El autoenfoque es rapidisimo para grabar contenido en movimiento, ideal para creadores. La pantalla abatible facilita mucho grabarme a mi mismo sin depender de otra persona."
+220,100,62,5,2025-07-08,"Los 425 puntos de autoenfoque siguen el sujeto sin perderlo casi nunca, incluso en movimiento rapido. El video en 4K se ve nitido y con buen detalle en exteriores."
+221,104,63,4,2025-07-15,Perfecta para aprender los fundamentos de fotografia sin gastar demasiado dinero. Los 24.1MP dan resultados mas que decentes para uso amateur.
+222,108,64,5,2025-07-22,La estabilizacion HyperSmooth 6.0 es impresionante en actividades de mucho movimiento como ciclismo de montana. La resistencia al agua elimina la necesidad de una carcasa adicional.
+223,112,65,4,2025-07-29,Graba muy bien en condiciones de poca luz comparada con otras camaras de accion que use antes. El sensor mas grande realmente marca diferencia en interiores oscuros.
+224,116,66,5,2025-08-05,"Pesa tan poco que no requiere licencia de piloto, algo que agradeci muchisimo. La deteccion de obstaculos omnidireccional da mucha confianza volando cerca de arboles."
+225,120,67,5,2025-08-12,La doble camara permite alternar entre gran angular y zoom sin perder calidad de imagen. Los 46 minutos de autonomia de vuelo son notablemente mas de lo que ofrecen otros drones similares.
+226,5,68,4,2025-08-19,Compacta y liviana para llevar de viaje sin cargar tanto peso. El video 4K UHD se ve muy nitido incluso en condiciones de luz mixta.
+227,9,69,4,2025-08-26,"Es muy divertida para eventos y reuniones familiares, el flash automatico funciona bien en interiores. El diseno compacto la hace facil de llevar en cualquier bolso."
+228,13,70,5,2025-09-02,La grabacion en 8K es impresionante y la estabilizacion FlowState elimina casi toda vibracion en bicicleta. El modo invisible hace que el dron o el palo de selfie desaparezcan de la toma.
+229,17,71,4,2025-09-09,Se integra perfectamente con mis focos inteligentes para automatizar rutinas de la casa. Alexa responde rapido incluso con musica sonando de fondo.
+230,21,72,4,2025-09-16,El sonido es bueno para su tamano tan compacto. Se integra facil con el resto de dispositivos Google Home que ya tenia en casa.
+231,25,73,5,2025-09-23,La estacion de auto-vaciado hace que me olvide del mantenimiento por semanas enteras. La navegacion LiDAR mapea la casa con muchisima precision desde el primer uso.
+232,29,74,4,2025-09-30,La conectividad WiFi permite programar la limpieza desde el trabajo sin problema. El control por app es intuitivo y facil de configurar.
+233,33,75,5,2025-10-07,Los 16 millones de colores le dieron un ambiente completamente distinto a mi sala. El control por voz funciona sin retrasos con mi asistente inteligente.
+234,37,76,4,2025-10-14,La vision panoramica de 360 grados cubre toda la habitacion sin puntos ciegos. La vision nocturna a color es sorprendentemente clara para el precio.
+235,41,77,4,2025-10-21,El video en HD se ve nitido incluso de noche gracias a la vision infrarroja. La deteccion de movimiento es rapida y confiable para avisos en tiempo real.
+236,45,78,4,2025-10-28,El control de temperatura exacta desde la app es perfecto para distintos tipos de te. Hierve el agua rapido y mantiene la temperatura configurada por varios minutos.
+237,49,79,5,2025-11-04,Reemplazo tres electrodomesticos distintos en mi cocina y ahorro muchisimo espacio en la alacena. Cocina en la mitad de tiempo que una olla tradicional sin perder sabor.
+238,53,80,4,2025-11-11,Las camaras internas son muy utiles para revisar que falta comprar desde el supermercado. La pantalla tactil facilita dejar notas para toda la familia.
+239,57,81,5,2025-11-18,El scroll electromagnetico se siente premium comparado con cualquier otro mouse que haya usado. Funciona perfecto incluso sobre superficies de vidrio.
+240,61,82,5,2025-11-25,Carga mi laptop y celular varias veces sin quedarse sin bateria en un viaje largo. La pantalla que muestra el porcentaje exacto es un detalle que se agradece mucho.
+241,65,83,4,2025-12-02,Sigue funcionando perfecto despues de meses de uso diario intensivo. La resistencia a las flexiones realmente se nota comparado con cables mas baratos.
+242,69,84,5,2025-12-09,"Hizo que mi PC arranque en segundos, un cambio total de velocidad frente al disco mecanico anterior. Vino con un disipador que ayuda mucho a mantener temperaturas bajas bajo carga."
+243,73,85,4,2025-12-16,Cabe perfecto en el bolsillo y no necesita cable de alimentacion externo para funcionar. Las velocidades de transferencia se sienten consistentes con archivos grandes de video.
+244,77,86,4,2025-12-23,Ideal para camaras de accion y drones que graban en alta resolucion constantemente. No ha fallado ni una sola vez despues de meses de uso intensivo.
+245,81,87,5,2025-12-30,El perfil XMP facilita activar la velocidad maxima sin tener que tocar configuraciones avanzadas de BIOS. La mejora en rendimiento del PC se nota de inmediato en tareas multitarea.
+246,85,88,3,2026-01-06,"Es silencioso y confiable para almacenamiento masivo de archivos que no uso a diario. La velocidad es la esperada para un disco mecanico, nada mas ni nada menos."
+247,89,89,5,2026-01-13,Es compacto y carga el celular sorprendentemente rapido para su tamano. Lo llevo siempre en la mochila porque ocupa muy poco espacio.
+248,93,90,5,2026-01-20,"Se ve muy nitida en videollamadas de trabajo, el enfoque automatico funciona genial incluso con poca luz. El cover de privacidad integrado es un detalle que agradezco mucho."
+249,5,2,1,2024-02-05,"El almacenamiento de 128GB es insuficiente para el precio que tiene, tuve que pagar extra por servicios en la nube casi de inmediato."
+250,9,6,2,2024-02-12,La camara ultra angular tiene mucha distorsion en los bordes de la foto. No la uso casi nunca por ese motivo.
+251,13,9,1,2024-02-19,El rendimiento general es muy lento para aplicaciones cotidianas como el banco o el correo. No lo recomendaria ni siquiera como equipo secundario.
+252,17,13,2,2024-02-26,El teclado se siente muy plano y sin buen recorrido para escribir largos textos. Para el precio esperaba una mejor experiencia de escritura.
+253,21,17,2,2024-03-04,El chasis se raya con facilidad al transportarla sin funda. Tuve que comprar una mochila acolchada aparte para protegerla.
+254,25,20,1,2024-03-11,La pantalla tiene un brillo bastante bajo comparado con otras laptops de oficina que he usado. En exteriores es casi ilegible.
+255,29,24,2,2024-03-18,El emparejamiento con mi celular Android fallo varias veces la primera semana. Tuve que reiniciar el parlante para que volviera a conectar.
+256,33,28,1,2024-03-25,El boton de encendido dejo de responder despues de dos meses de uso normal. Tuve que iniciar un reclamo de garantia.
+257,37,32,2,2024-04-01,El sonido de los parlantes integrados es bastante mediocre para un television de este precio. Es casi obligatorio comprar una barra de sonido aparte.
+258,41,36,1,2024-04-08,"El panel muestra uniformidad de negro deficiente, se nota mucho en peliculas oscuras. No cumple lo que esperaba de la marca."
+259,45,40,2,2024-04-15,El marco intercambiable tiene un costo aparte bastante elevado si quieres cambiar el diseno. No viene incluido en la caja como pense.
+260,49,44,2,2024-04-22,Los Joy-Con presentan drift en el stick izquierdo despues de pocos meses de uso. Es un problema conocido de la marca que todavia no resuelven del todo.
+261,53,47,1,2024-04-29,El cable se desgasto rapido en la zona cercana al conector. Tuve que reemplazarlo antes de los seis meses de uso.
+262,57,51,2,2024-05-06,La correa deportiva que trae de fabrica se decolora con el sudor despues de unas semanas de entrenar. Tuve que comprar una correa aparte.
+263,61,55,1,2024-05-13,El precio es dificil de justificar si no eres un deportista de alto rendimiento. Para uso casual se siente sobredimensionado.
+264,65,58,2,2024-05-20,La app de Amazfit se desconecta seguido del reloj y hay que volver a emparejar. Es molesto tener que hacerlo cada pocos dias.
+265,69,63,1,2024-05-27,El video que graba se ve bastante limitado en resolucion comparado con camaras mas actuales. Para fotografia cumple pero para video decepciona.
+266,73,67,2,2024-06-03,El estuche de transporte que incluye es de baja calidad y no protege bien contra golpes. Tuve que comprar uno rigido por separado.
+267,77,71,1,2024-06-10,Alexa interpreta mal comandos simples con bastante frecuencia. Termine usandolo solo para poner musica y nada mas.
+268,81,74,2,2024-06-17,El deposito de polvo es pequeno y hay que vaciarlo cada dos o tres usos. Para una casa grande resulta poco practico.
+269,85,77,1,2024-06-24,Requiere una suscripcion de pago para acceder al historial de grabaciones. Sin ese plan el producto pierde gran parte de su utilidad.
+270,89,80,2,2024-07-01,La pantalla se ve con reflejos molestos en una cocina con mucha luz natural. Fuera de eso el refrigerador enfria muy bien.
+271,93,84,1,2024-07-08,El rendimiento baja notoriamente en transferencias sostenidas de archivos muy grandes. No es tan rapido como prometia la publicidad.
+272,97,87,2,2024-07-15,Uno de los dos modulos vino con un ligero defecto que causaba pantallazos azules ocasionales. Tuve que hacer el cambio de garantia.
+273,101,3,2,2024-07-22,El equipo es pesado y se siente incomodo sostenerlo con una sola mano por periodos largos. La camara es excelente pero el tamano pasa factura.
+274,105,7,1,2024-07-29,El telefono se reinicia solo de manera aleatoria un par de veces por semana. Ya lleve el caso a soporte pero aun no dan solucion.
+275,109,11,2,2024-08-05,Con 8GB de RAM el sistema empieza a ralentizarse si abro muchas pestanas del navegador a la vez. Para uso ligero es suficiente pero no mas que eso.
+276,113,15,1,2024-08-12,La bisagra de la pantalla se siente floja despues de unos meses de uso diario. Ya no sostiene bien el angulo que uno elige.
+277,117,19,2,2024-08-19,"El teclado no tiene numpad separado, algo que esperaba en una laptop de este tamano. Para trabajo con hojas de calculo se extrana."
+278,2,23,1,2024-08-26,El estuche de transporte es demasiado grande para llevarlo en una mochila pequena. Para algo tan caro esperaba mejor diseno del accesorio.
+279,6,27,2,2024-09-02,Los auriculares se caen del estuche facilmente si no se colocan con precision. Ya perdi uno por ese motivo en la calle.
+280,10,31,2,2024-09-09,El brillo maximo se queda algo corto en escenas HDR muy luminosas comparado con paneles QLED de la competencia. Sigue siendo excelente en contenido oscuro.
+281,14,35,1,2024-09-16,El control remoto que incluye se siente de plastico muy barato y algunos botones ya no responden bien. Esperaba mejor calidad de construccion.
+282,18,39,2,2024-09-23,El menu de configuracion es confuso y toma tiempo encontrar ciertas opciones basicas. La imagen en si es buena pero el software podria mejorar.
+283,22,43,1,2024-09-30,La consola es bastante grande y no encaja facilmente en muebles de entretenimiento compactos. Deberian haber pensado mejor el diseno para espacios pequenos.
+284,26,48,2,2024-10-07,El cable del microfono se enreda con facilidad y ya presenta un poco de ruido estatico. Sigue funcionando pero no como al principio.
+285,30,52,1,2024-10-14,El precio es dificil de justificar si no practicas deportes extremos de forma regular. Para uso diario basico es una inversion excesiva.
+286,34,56,2,2024-10-21,La correa que trae de fabrica se siente barata y empieza a desgastarse rapido. El resto de la pulsera funciona bien.
+287,38,60,1,2024-10-28,No es compatible con todas las apps de terceros que uso a diario para entrenar. Eso limita bastante su utilidad frente a otras marcas.
+288,42,64,2,2024-11-04,"La bateria rinde bastante menos en clima frio, algo que note en un viaje a la sierra. En condiciones normales de temperatura funciona mejor."
+289,46,5,3,2024-11-11,Cumple bien para el dia a dia pero no destaca en ningun aspecto en particular. Es una opcion segura sin sorpresas.
+290,50,10,3,2024-11-18,Buen rendimiento general aunque la curva de la pantalla a veces genera toques accidentales. Nada que arruine la experiencia por completo.
+291,54,14,3,2024-11-25,"Es una laptop correcta para tareas de oficina, sin destacar en ningun rubro especifico. Cumple su proposito sin mas."
+292,58,18,3,2024-12-02,"Buen equipo para estudiantes, aunque el acabado plastico se siente algo economico al tacto. El rendimiento en si es adecuado."
+293,62,22,3,2024-12-09,Suenan bien pero no encuentro una diferencia enorme frente a la generacion anterior que tenia. Sigue siendo una buena opcion dentro del ecosistema Apple.
+294,66,26,3,2024-12-16,"Es un parlante correcto para uso personal cercano, no para llenar un ambiente grande. Cumple lo que promete para su tamano."
+295,70,30,3,2024-12-23,"El sonido es aceptable para el precio, sin ser lo mejor de su categoria. Para uso casual funciona sin problemas."
+296,74,34,3,2024-12-30,La imagen es correcta para el precio pero el procesamiento de movimiento deja algo que desear en escenas de accion. En contenido estatico se ve bien.
+297,78,38,3,2025-01-06,"Cumple lo basico como television inteligente, sin funciones extraordinarias. El precio compensa las limitaciones."
+298,82,42,3,2025-01-13,"Buena consola si ya tienes tu biblioteca digital, aunque se extrana la opcion de revender juegos fisicos. El rendimiento es identico a la version con disco."
+299,86,46,3,2025-01-20,Es un mouse solido pero el cable se siente algo rigido comparado con otros modelos inalambricos que he probado. El sensor funciona muy bien de todas formas.
+300,90,50,3,2025-01-27,"Funciona bien la mayoria del tiempo, aunque algunos juegos moviles no reconocen los controles automaticamente. Hay que configurarlo manualmente en esos casos."
+301,94,54,3,2025-02-03,Buen reloj deportivo aunque la interfaz de menus se siente algo anticuada comparada con la competencia. Las metricas deportivas son precisas.
+302,98,59,3,2025-02-10,"Cumple bien como smartwatch general, sin ser el mas avanzado en funciones sociales. Para seguimiento deportivo funciona correctamente."
+303,102,62,3,2025-02-17,Buena camara para el precio aunque el menu de configuracion es poco intuitivo al principio. Con la practica se vuelve mas facil de manejar.
+304,106,66,3,2025-02-24,Vuela bien en condiciones normales pero se ve afectado por vientos fuertes debido a su peso liviano. Para uso recreativo tranquilo funciona perfecto.
+305,110,69,3,2025-03-03,"Es divertida para el momento pero la calidad de imagen es basica comparada con una camara digital. Para el proposito que tiene, cumple bien."
+306,114,73,3,2025-03-10,Limpia bien pisos duros pero en alfombras gruesas pierde algo de potencia de succion. En general cumple con lo esperado.
+307,118,76,3,2025-03-17,"La calidad de imagen de dia es buena, aunque de noche pierde algo de nitidez en distancias largas. Para monitoreo basico del hogar es suficiente."
+308,3,79,3,2025-03-24,Funciona bien para las funciones basicas aunque el manual no explica muy claro todos los programas. Tras algunas pruebas se le agarra la mano.
+309,7,82,3,2025-03-31,"Es pesado para llevarlo a diario en el bolsillo, mejor para mochila. La capacidad de carga es la esperada."
+310,11,85,3,2025-04-07,Buen SSD portatil aunque el precio por GB es mas alto que otras opciones del mercado. La velocidad real se acerca a lo anunciado.
+311,15,88,3,2025-04-14,Cumple su funcion de almacenamiento sin destacar en nada en particular. Es la opcion esperable para este tipo de disco mecanico.
+312,19,1,3,2025-04-21,Excelente camara pero el precio sigue siendo dificil de justificar frente a otras marcas con especificaciones similares. La experiencia de uso general es muy buena.
+313,23,4,3,2025-04-28,"Cumple bien como equipo de gama media, aunque el procesador se nota justo en juegos exigentes. Para uso general es mas que suficiente."
+314,27,8,3,2025-05-05,Buen equipo por el precio aunque la camara secundaria casi no se usa por su baja calidad. La camara principal cumple bien su funcion.
+315,31,12,3,2025-05-12,Excelente rendimiento aunque para uso basico se siente sobrado de potencia. Es una inversion que vale la pena solo si el trabajo lo exige.
+316,35,16,3,2025-05-19,"Buen rendimiento en juegos aunque la bateria dura poco fuera del enchufe, como es tipico en laptops gamer. El sonido de los parlantes internos es promedio."
+317,39,21,3,2025-05-26,Excelente cancelacion de ruido aunque el diseno plegable es algo menos comodo que la generacion anterior. En general siguen siendo unos audifonos solidos.
+318,43,25,3,2025-06-02,"Buen sonido y bateria decente, aunque es mas pesado que otros parlantes de tamano similar. Cumple bien su doble funcion como power bank."
