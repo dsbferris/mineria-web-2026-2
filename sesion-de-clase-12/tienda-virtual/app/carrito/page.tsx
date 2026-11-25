@@ -211,32 +211,43 @@ export default async function CarritoPage({ searchParams }: CarritoPageProps) {
               gtag('event', 'view_cart', carritoGA);
             }
 
-            // Clic en "Agregar"
-            document.getElementById('form-agregar-producto').onsubmit = function () {
-              if (!productosGA[this.productoId.value]) return;
-              enviarEvento('add_to_cart', [itemConCantidad(this.productoId.value, Number(this.cantidad.value) || 1)]);
-            };
+            // Un solo listener global de submit (fase de captura). No depende de que los <form>
+            // sigan siendo los mismos nodos tras re-renders/navegacion de React; los datos
+            // vigentes se guardan en window.__gaCarrito en cada ejecucion de este script.
+            window.__gaCarrito = { productosGA: productosGA, cantidadesGA: cantidadesGA, carritoGA: carritoGA };
+            if (!window.__gaCarritoListener) {
+              window.__gaCarritoListener = true;
+              document.addEventListener('submit', function (e) {
+                var f = e.target;
+                var d = window.__gaCarrito;
+                if (!f || !f.id || !d) return;
 
-            Object.keys(cantidadesGA).forEach(function (productoId) {
-              // Clic en "Actualizar": sube la cantidad -> add_to_cart, baja -> remove_from_cart (por la diferencia)
-              document.getElementById('form-cantidad-' + productoId).onsubmit = function () {
-                var diferencia = Number(this.cantidad.value) - cantidadesGA[productoId];
-                if (!diferencia || Number(this.cantidad.value) < 1) return;
-                enviarEvento(diferencia > 0 ? 'add_to_cart' : 'remove_from_cart',
-                  [itemConCantidad(productoId, Math.abs(diferencia))]);
-              };
-              // Clic en "Quitar"
-              document.getElementById('form-quitar-' + productoId).onsubmit = function () {
-                enviarEvento('remove_from_cart', [itemConCantidad(productoId, cantidadesGA[productoId])]);
-              };
-            });
-
-            // Clic en "Crear orden": inicio del pago
-            var formCrearOrden = document.getElementById('form-crear-orden');
-            if (formCrearOrden) {
-              formCrearOrden.onsubmit = function () {
-                gtag('event', 'begin_checkout', carritoGA);
-              };
+                // Clic en "Agregar"
+                if (f.id === 'form-agregar-producto') {
+                  if (!d.productosGA[f.productoId.value]) return;
+                  enviarEvento('add_to_cart', [itemConCantidad(f.productoId.value, Number(f.cantidad.value) || 1)]);
+                  return;
+                }
+                // Clic en "Crear orden": inicio del pago
+                if (f.id === 'form-crear-orden') {
+                  gtag('event', 'begin_checkout', Object.assign({ transport_type: 'beacon' }, d.carritoGA));
+                  return;
+                }
+                // Clic en "Actualizar": sube la cantidad -> add_to_cart, baja -> remove_from_cart (por la diferencia)
+                if (f.id.indexOf('form-cantidad-') === 0) {
+                  var idAct = f.id.replace('form-cantidad-', '');
+                  var diferencia = Number(f.cantidad.value) - d.cantidadesGA[idAct];
+                  if (!diferencia || Number(f.cantidad.value) < 1) return;
+                  enviarEvento(diferencia > 0 ? 'add_to_cart' : 'remove_from_cart',
+                    [itemConCantidad(idAct, Math.abs(diferencia))]);
+                  return;
+                }
+                // Clic en "Quitar"
+                if (f.id.indexOf('form-quitar-') === 0) {
+                  var idQuitar = f.id.replace('form-quitar-', '');
+                  enviarEvento('remove_from_cart', [itemConCantidad(idQuitar, d.cantidadesGA[idQuitar])]);
+                }
+              }, true);
             }
           `}</Script>
         </div>

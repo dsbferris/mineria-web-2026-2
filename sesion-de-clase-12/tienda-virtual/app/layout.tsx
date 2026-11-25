@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 // Google Analytics 4: ID de medicion del flujo "Web - Tienda Virtual".
-const GA_MEASUREMENT_ID = "G-TPETTC224D";
+const GA_MEASUREMENT_ID = "G-2XRTF1N0T5";
 
 // Orden: js -> config. debug_mode solo en localhost (DebugView);
 // fuera de localhost se omite, porque debug_mode: false no desactiva la depuracion.
@@ -31,7 +31,7 @@ const gtagSnippet = `
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   const config = {};
-  if (location.hostname === 'localhost') config.debug_mode = true;
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1') config.debug_mode = true;
   gtag('config', '${GA_MEASUREMENT_ID}', config);
 `;
 
